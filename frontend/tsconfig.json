@@ -1,0 +1,19 @@
+{
+  "//": "Compiler-Optionen stehen in config/typescript/tsconfig.base.json; paths und include müssen hier bleiben (relativ zu dieser Datei).",
+  "extends": "./config/typescript/tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}

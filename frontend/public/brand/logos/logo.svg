@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" role="img" aria-label="M&amp;L IT Software Services">
+  <rect width="64" height="64" rx="14" fill="#0B2C5F"/>
+  <circle cx="24" cy="32" r="12" fill="#00A3FF"/>
+  <path d="M38 16a16 16 0 0 1 0 32a20 20 0 0 0 0-32z" fill="#FFFFFF"/>
+  <text x="78" y="36" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="26" fill="#0B2C5F">M<tspan fill="#00A3FF">&amp;</tspan>L IT</text>
+  <text x="80" y="56" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#0B2C5F">SOFTWARE SERVICES</text>
+</svg>

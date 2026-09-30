@@ -1,0 +1,25 @@
+/* Design-Tokens: einzige Quelle für Farben, Schrift und Breakpoints (Tailwind v4 @theme). */
+@theme {
+  /* Marke: Navy + Himmelblau */
+  --color-brand-50: #eef6ff;
+  --color-brand-100: #d9ebff;
+  --color-brand-500: #00a3ff;
+  --color-brand-600: #008ae0;
+  --color-brand-700: #006fb8;
+  --color-navy-700: #173f7a;
+  --color-navy-800: #0f3368;
+  --color-navy-900: #0b2c5f;
+  --color-navy-950: #071d40;
+
+  /* Status */
+  --color-success: #059669;
+  --color-warning: #b45309;
+  --color-error: #dc2626;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Mobile ist Standard; Tablet und Desktop erweitern progressiv. */
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}
