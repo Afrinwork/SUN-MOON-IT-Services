@@ -1,0 +1,26 @@
+# Geheimnisse
+.env
+.env.*
+!.env.example
+
+# Betriebssystem / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Frontend
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Backend
+target/
+
+# Deployment-Zustand auf dem Server
+.deploy/

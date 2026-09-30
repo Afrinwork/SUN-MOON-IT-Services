@@ -1,0 +1,12 @@
+# Produktion: Werte kommen aus Umgebungsvariablen (siehe .env.example).
+app:
+  security:
+    allowed-origins: ${ALLOWED_ORIGINS:}
+  rate-limit:
+    max-requests: ${RATE_LIMIT_MAX_REQUESTS:60}
+    window: ${RATE_LIMIT_WINDOW:1m}
+
+logging:
+  level:
+    root: INFO
+    com.mlservices: INFO

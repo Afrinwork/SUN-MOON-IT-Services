@@ -1,0 +1,11 @@
+# Lokale Entwicklung: Frontend auf localhost:3000 darf die API direkt aufrufen.
+app:
+  security:
+    allowed-origins:
+      - http://localhost:3000
+  rate-limit:
+    max-requests: 600
+
+logging:
+  level:
+    com.mlservices: DEBUG
