@@ -42,4 +42,5 @@ export const legalLinks: NavLink[] = [
   ["Impressum", "/impressum"],
   ["Datenschutz", "/datenschutz"],
   ["AGB", "/agb"],
+  ["Cookies", "/cookies"],
 ];

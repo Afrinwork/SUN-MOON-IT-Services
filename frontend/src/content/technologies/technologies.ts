@@ -1,10 +1,8 @@
 import type { TechnologyCategory } from "@/features/technologies/types/technology.types";
 
 export const technologyCategories: TechnologyCategory[] = [
-  { title: "Frontend", items: ["Next.js", "React", "TypeScript"] },
-  { title: "Backend", items: ["Java", "Spring Boot"] },
-  { title: "Microsoft", items: ["Microsoft 365", "SharePoint", "Teams"] },
-  { title: "Mobile", items: [] },
-  { title: "KI & Automatisierung", items: [] },
-  { title: "Infrastruktur", items: [] },
+  { title: "Websites & Web-Apps", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
+  { title: "Software & Schnittstellen", items: ["Java", "Spring Boot", "REST-APIs"] },
+  { title: "Microsoft 365", items: ["SharePoint", "Teams", "Power Automate"] },
+  { title: "Betrieb & Infrastruktur", items: ["Docker", "Vercel", "Git"] },
 ];

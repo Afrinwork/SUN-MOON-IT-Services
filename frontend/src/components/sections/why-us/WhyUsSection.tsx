@@ -12,9 +12,9 @@ const reasons = [
 
 export function WhyUsSection() {
   return (
-    <section className="bg-surface py-20 md:py-28">
+    <section className="bg-primary py-20 text-white md:py-28">
       <Container>
-        <SectionHeader eyebrow="Warum M&L" title="Qualität, die nicht an der Oberfläche endet." text="Gutes Design, durchdachte Technik und verlässliche Zusammenarbeit gehören für uns zusammen." />
+        <SectionHeader eyebrow="Warum Sun & Moon" title="Qualität, die nicht an der Oberfläche endet." text="Gutes Design, durchdachte Technik und verlässliche Zusammenarbeit gehören für uns zusammen." light />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">{reasons.map(([Icon, title, text]) => <article key={title} className="rounded-3xl border border-border bg-white p-6"><Icon className="text-accent-strong" /><h3 className="mt-5 font-bold text-primary">{title}</h3><p className="mt-2 text-sm leading-6 text-muted">{text}</p></article>)}</div>
       </Container>
     </section>

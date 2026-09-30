@@ -7,6 +7,7 @@ import { TagList } from "@/components/ui/list/TagList";
 import { Section } from "@/components/ui/section/Section";
 import { SoftwareLinks } from "@/features/own-software/components/SoftwareLinks";
 import { findSoftware, ownSoftware } from "@/features/own-software/data/software";
+import { createMetadata } from "@/lib/seo/createMetadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const software = findSoftware((await params).slug);
-  return software ? { title: software.title, description: software.short } : {};
+  return software ? createMetadata({ title: software.title, description: software.short, path: `/projekte/eigene-software/${software.slug}` }) : {};
 }
 
 export default async function SoftwareDetailPage({ params }: Props) {

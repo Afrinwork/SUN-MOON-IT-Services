@@ -1,17 +1,29 @@
+import { Briefcase, Hammer, HeartPulse, Rocket, ShoppingBag, Store } from "lucide-react";
 import { Container } from "@/components/ui/container/Container";
 import { SectionHeader } from "@/components/ui/section/SectionHeader";
 
-const customers = ["NORDWERK", "VITALIS", "ELBWERK", "KONTUR", "NOVENTA", "WERKRAUM"];
+const audiences = [
+  [Hammer, "Handwerk"],
+  [Briefcase, "Dienstleister"],
+  [Store, "Mittelstand"],
+  [ShoppingBag, "Handel"],
+  [HeartPulse, "Praxen"],
+  [Rocket, "Start-ups"],
+] as const;
 
 export function CustomersSection() {
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-white py-20 md:py-28">
       <Container>
-        <SectionHeader eyebrow="Zusammenarbeit" title="Technologie lebt von Vertrauen." text="Hier können später echte, freigegebene Kundenlogos und die zugehörigen Projekte präsentiert werden." centered />
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3 lg:grid-cols-6">
-          {customers.map((name) => <div key={name} className="grid min-h-28 place-items-center bg-white p-5 text-center text-sm font-black tracking-[0.12em] text-primary/35 transition hover:text-primary"><span>{name}</span></div>)}
-        </div>
-        <p className="mt-4 text-center text-xs text-muted">Platzhalterdarstellung – keine echten Kundenreferenzen.</p>
+        <SectionHeader eyebrow="Für wen wir arbeiten" title="Für Unternehmen, die weiterkommen wollen." text="Wir unterstützen kleine und mittlere Unternehmen dabei, ihre Abläufe einfacher und digitaler zu machen." centered />
+        <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3 lg:grid-cols-6">
+          {audiences.map(([Icon, name]) => (
+            <li key={name} className="grid min-h-28 place-items-center gap-2 bg-white p-5 text-center">
+              <Icon size={22} className="text-accent-strong" />
+              <span className="text-sm font-bold text-primary">{name}</span>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );

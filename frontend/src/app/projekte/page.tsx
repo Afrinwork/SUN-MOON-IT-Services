@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo/createMetadata";
 import { Briefcase, Layers3 } from "lucide-react";
 import { PageHeader } from "@/components/layout/page/PageHeader";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { CardLink } from "@/components/ui/card/CardLink";
 import { Section } from "@/components/ui/section/Section";
 
-export const metadata: Metadata = { title: "Projekte", description: "Eigene Softwareprodukte und ausgewählte Kundenprojekte." };
+export const metadata: Metadata = createMetadata({ title: "Projekte", description: "Eigene Softwareprodukte und Kundenprojekte von Sun & Moon IT Software Services – mit Sorgfalt entwickelt.", path: "/projekte" });
 
 export default function ProjektePage() {
   return (

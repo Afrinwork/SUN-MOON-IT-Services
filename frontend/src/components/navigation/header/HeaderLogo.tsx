@@ -6,7 +6,7 @@ export function HeaderLogo() {
     <Link href="/" aria-label="Zur Startseite" className="relative block h-12 w-52 shrink-0 overflow-hidden">
       <Image
         src="/brand/logos/company-logo.png"
-        alt="Sun & Moon IT Services"
+        alt="Sun & Moon IT Software Services"
         width={1777}
         height={887}
         priority

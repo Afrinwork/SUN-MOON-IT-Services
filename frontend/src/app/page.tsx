@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { AboutSection } from "@/components/sections/about/AboutSection";
 import { ClientProjectsSection } from "@/components/sections/client-projects/ClientProjectsSection";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
@@ -10,6 +11,10 @@ import { ServicesSection } from "@/components/sections/services/ServicesSection"
 import { TechnologiesSection } from "@/components/sections/technologies/TechnologiesSection";
 import { TrustSection } from "@/components/sections/trust/TrustSection";
 import { WhyUsSection } from "@/components/sections/why-us/WhyUsSection";
+import { siteConfig } from "@/config/site.config";
+import { createMetadata } from "@/lib/seo/createMetadata";
+
+export const metadata: Metadata = createMetadata({ description: siteConfig.description, path: "" });
 
 export default function HomePage() {
   return (

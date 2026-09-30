@@ -6,6 +6,7 @@ import { TagList } from "@/components/ui/list/TagList";
 import { Section } from "@/components/ui/section/Section";
 import { ProjectStory } from "@/features/client-projects/components/ProjectStory";
 import { clientProjects, findClientProject } from "@/features/client-projects/data/client-projects";
+import { createMetadata } from "@/lib/seo/createMetadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,7 +18,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = findClientProject((await params).slug);
-  return project ? { title: project.title, description: project.short } : {};
+  return project ? createMetadata({ title: project.title, description: project.short, path: `/projekte/kundenprojekte/${project.slug}` }) : {};
 }
 
 export default async function KundenprojektDetailPage({ params }: Props) {

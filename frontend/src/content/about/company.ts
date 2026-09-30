@@ -1,5 +1,7 @@
 export const company = {
-  intro: "M&L IT Software Services verbindet moderne Entwicklung mit einem klaren Blick für Geschäftsprozesse. Wir übersetzen komplexe Anforderungen in verständliche, wartbare und wirkungsvolle digitale Lösungen.",
-  /** Weitere Absätze zur Geschichte und zum Team. */
-  story: [] as string[],
+  intro: "Sun & Moon IT Software Services entwickelt Websites, Apps und individuelle Software für kleine und mittlere Unternehmen.",
+  /** Weitere kurze Absätze zur Geschichte und zum Team. */
+  story: [
+    "Wir verbinden moderne Technik mit einem klaren Blick für Ihre Abläufe. Das Ergebnis: Lösungen, die verständlich sind, zuverlässig laufen und mit Ihnen wachsen.",
+  ],
 };

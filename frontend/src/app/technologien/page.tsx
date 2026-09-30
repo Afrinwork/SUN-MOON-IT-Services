@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo/createMetadata";
 import { PageHeader } from "@/components/layout/page/PageHeader";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { Section } from "@/components/ui/section/Section";
 import { TechnologyGrid } from "@/features/technologies/components/TechnologyGrid";
 
-export const metadata: Metadata = { title: "Technologien", description: "Die Werkzeuge und Plattformen, mit denen wir arbeiten." };
+export const metadata: Metadata = createMetadata({ title: "Technologien", description: "Next.js, React, Java, Spring Boot und Microsoft 365 – bewährte Technik, sinnvoll eingesetzt.", path: "/technologien" });
 
 export default function TechnologienPage() {
   return (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo/createMetadata";
 import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/page/PageHeader";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
@@ -10,7 +11,7 @@ import { qualityPrinciples } from "@/content/about/approach";
 import { values } from "@/content/about/values";
 import { CompanyIntro } from "@/features/about/components/CompanyIntro";
 
-export const metadata: Metadata = { title: "Über uns", description: "Wer wir sind, wofür wir stehen und wie wir arbeiten." };
+export const metadata: Metadata = createMetadata({ title: "Über uns", description: "Wer hinter Sun & Moon IT Software Services steht, wofür wir stehen und wie wir arbeiten.", path: "/ueber-uns" });
 
 export default function UeberUnsPage() {
   return (

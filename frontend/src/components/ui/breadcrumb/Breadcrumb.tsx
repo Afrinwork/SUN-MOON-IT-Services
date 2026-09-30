@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/seo/structuredData";
 
 export type Crumb = { label: string; href?: string };
 
 export function Breadcrumb({ items }: { items: Crumb[] }) {
   return (
     <nav aria-label="Brotkrumen" className="mb-6 text-sm text-white/60">
+      <JsonLd data={breadcrumbSchema(items)} />
       <ol className="flex flex-wrap items-center gap-1.5">
         <li><Link href="/" className="hover:text-white">Start</Link></li>
         {items.map((item) => (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo/createMetadata";
 import { PageHeader } from "@/components/layout/page/PageHeader";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { CardGrid } from "@/components/ui/card/CardGrid";
@@ -6,7 +7,7 @@ import { CardLink } from "@/components/ui/card/CardLink";
 import { Section } from "@/components/ui/section/Section";
 import { services } from "@/features/services/data/services";
 
-export const metadata: Metadata = { title: "Leistungen", description: "Webentwicklung, Apps, individuelle Software, Microsoft 365, KI und Modernisierung." };
+export const metadata: Metadata = createMetadata({ title: "Leistungen", description: "Websites, Apps, individuelle Software, Microsoft 365, KI-Automatisierung und Modernisierung – alles aus einer Hand.", path: "/leistungen" });
 
 export default function LeistungenPage() {
   return (
