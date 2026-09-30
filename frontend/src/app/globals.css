@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "../styles/tokens/colors.css";
+@import "../styles/tokens/radius.css";
+@import "../styles/animations/reveal.css";
+@import "../styles/animations/reduced-motion.css";
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: color-mix(in srgb, var(--brand-accent) 24%, white); }
+
+.network-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--brand-accent) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--brand-accent) 9%, transparent) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+}

@@ -1,0 +1,25 @@
+:root {
+  --background: #ffffff;
+  --brand-primary: #0b2c5f;
+  --brand-primary-deep: #071d40;
+  --brand-accent: #00a3ff;
+  --brand-accent-strong: #008ae0;
+  --text-primary: #0a1f3d;
+  --text-secondary: #526277;
+  --surface: #f6f8fb;
+  --surface-accent: #eef7ff;
+  --border: #dce3ea;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-primary: var(--brand-primary);
+  --color-primary-deep: var(--brand-primary-deep);
+  --color-accent: var(--brand-accent);
+  --color-accent-strong: var(--brand-accent-strong);
+  --color-foreground: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-surface: var(--surface);
+  --color-surface-accent: var(--surface-accent);
+  --color-border: var(--border);
+}
