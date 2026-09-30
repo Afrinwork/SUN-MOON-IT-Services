@@ -7,7 +7,7 @@ import { preload } from "react-dom";
 export function HeroBackgroundVideo() {
   preload("/videos/hero-poster.webp", { as: "image", fetchPriority: "high" });
   return (
-    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(/videos/hero-poster.webp)" }} aria-hidden="true">
+    <div className="hero-media absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(/videos/hero-poster.webp)" }} aria-hidden="true">
       <video
         className="size-full object-cover object-center motion-reduce:hidden"
         src="/videos/hero-background.mp4"
