@@ -1,1 +1,7 @@
-export type TechnologyCategory = { title: string; items: string[] };
+export type TechnologyCategory = {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  items: string[];
+};

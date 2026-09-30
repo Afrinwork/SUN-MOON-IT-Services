@@ -13,6 +13,16 @@ export function organizationSchema() {
     logo: absolute("/brand/logos/company-logo.png"),
     image: absolute("/brand/logos/company-logo.png"),
     description: siteConfig.description,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Wilhelm-Busch-Straße 8",
+      postalCode: "30926",
+      addressLocality: "Seelze",
+      addressCountry: "DE",
+    },
+    sameAs: [siteConfig.instagramUrl],
     areaServed: { "@type": "Country", name: "Deutschland" },
   };
 }

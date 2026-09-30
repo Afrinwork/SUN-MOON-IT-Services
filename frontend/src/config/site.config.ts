@@ -8,7 +8,8 @@ export const siteConfig = {
   whatsappUrl: "https://wa.me/491762179571",
   email: "itsoftwareml@gmail.com",
   instagramUrl: "https://www.instagram.com/sunmoon_it_services/",
-  address: "Deutschland",
+  address: "Wilhelm-Busch-Straße 8, 30926 Seelze",
+  addressLines: ["Wilhelm-Busch-Straße 8", "30926 Seelze"],
   openingHours: "Mo–Fr, 9–17 Uhr",
   /** Link zu einem externen Anfrageformular – leer lassen, solange es keins gibt. */
   externalFormUrl: "",
