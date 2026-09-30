@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/page/PageHeader";
+import { MobileContactBar } from "@/components/mobile/MobileContactBar";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CardGrid } from "@/components/ui/card/CardGrid";
@@ -32,6 +33,7 @@ export default function ItServiceHannoverPage() {
       <Section eyebrow="Warum wir" title="Ihr Partner vor Ort"><FeatureGrid items={hannoverPage.reasons} /></Section>
       <Section eyebrow="FAQ" title="Häufige Fragen" tone="surface"><FaqList items={hannoverPage.faq} /></Section>
       <ContactCTASection />
+      <MobileContactBar />
     </main>
   );
 }

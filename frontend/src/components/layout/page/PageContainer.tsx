@@ -15,8 +15,8 @@ export function PageContainer({
     <main className="grid min-h-[65vh] place-items-center bg-surface py-20">
       <Container className="text-center">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-strong">Fehler 404</p>
-        <h1 className="mt-4 text-4xl font-black tracking-tight text-primary md:text-6xl">{title}</h1>
-        <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-muted">{text}</p>
+        <h1 className="mt-4 break-words text-[2rem] font-black leading-tight tracking-tight text-primary sm:text-4xl md:text-6xl">{title}</h1>
+        <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-muted md:text-lg md:leading-8">{text}</p>
         <Link href={backHref} className="mt-8 inline-flex items-center gap-2 font-bold text-accent-strong"><ArrowLeft size={17} /> {backLabel}</Link>
       </Container>
     </main>

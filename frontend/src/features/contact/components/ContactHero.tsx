@@ -52,7 +52,7 @@ export function ContactHero() {
       <Container className="relative py-10 md:hidden">
         <Breadcrumb items={[{ label: "Kontakt" }]} />
         <p className="mobile-reveal mobile-delay-1 mt-8 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Direkter Kontakt</p>
-        <h1 className="mobile-reveal mobile-delay-1 mt-3 text-[2.5rem] font-black leading-[1.03] tracking-[-0.045em]">Lassen Sie uns über Ihre <span className="text-accent">Idee sprechen.</span></h1>
+        <h1 className="mobile-safe-title mobile-reveal mobile-delay-1 mt-3 font-black leading-[1.03] tracking-[-0.045em]">Lassen Sie uns über Ihre <span className="text-accent">Idee sprechen.</span></h1>
         <p className="mobile-reveal mobile-delay-2 mt-5 text-base leading-7 text-white/68">Eine kurze Nachricht genügt für eine erste unverbindliche Einschätzung.</p>
 
         <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="mobile-reveal mobile-delay-3 mt-7 flex min-h-14 items-center justify-between rounded-2xl bg-accent px-5 font-bold text-primary-deep">

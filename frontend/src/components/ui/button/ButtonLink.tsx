@@ -11,7 +11,7 @@ const styles = {
 
 export function ButtonLink({ href, children, variant = "primary", className = "" }: Props) {
   return (
-    <Link href={href} className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition duration-300 ${styles[variant]} ${className}`}>
+    <Link href={href} className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-sm font-bold leading-5 transition duration-300 ${styles[variant]} ${className}`}>
       {children}
     </Link>
   );

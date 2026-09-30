@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo/createMetadata";
 import { Briefcase, Layers3 } from "lucide-react";
 import { PageHeader } from "@/components/layout/page/PageHeader";
+import { MobileContactBar } from "@/components/mobile/MobileContactBar";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { CardLink } from "@/components/ui/card/CardLink";
 import { Section } from "@/components/ui/section/Section";
@@ -19,6 +20,7 @@ export default function ProjektePage() {
         </ul>
       </Section>
       <ContactCTASection />
+      <MobileContactBar />
     </main>
   );
 }

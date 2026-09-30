@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/page/PageHeader";
+import { MobileContactBar } from "@/components/mobile/MobileContactBar";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { ProcessSection } from "@/components/sections/process/ProcessSection";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -32,6 +33,7 @@ export function ServicePage({ slug }: { slug: string }) {
       <Section eyebrow="FAQ" title="Häufige Fragen"><FaqList items={content.faq} /></Section>
       <Section eyebrow="Mehr entdecken" title="Weitere Leistungen" tone="surface"><RelatedServices currentSlug={slug} /></Section>
       <ContactCTASection />
+      <MobileContactBar />
     </main>
   );
 }

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, Check, Globe2, MessageCircle } from "lucide-react";
+import { MobileContactBar } from "@/components/mobile/MobileContactBar";
 import { Container } from "@/components/ui/container/Container";
 import { languagePages, type LanguagePage } from "@/content/languages/language-pages";
 import { siteConfig } from "@/config/site.config";
+
+const callLabels: Record<LanguagePage["locale"], string> = { en: "Call", ar: "اتصال", tr: "Ara", ku: "Telefon bike" };
 
 export function LanguageLandingPage({ content }: { content: LanguagePage }) {
   return (
@@ -33,8 +36,8 @@ export function LanguageLandingPage({ content }: { content: LanguagePage }) {
         <section className="bg-surface py-16 md:py-24">
           <Container>
             <div className="max-w-3xl"><p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-strong">Services</p><h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-primary md:text-5xl">{content.servicesTitle}</h2><p className="mt-5 text-lg leading-8 text-muted">{content.servicesIntro}</p></div>
-            <div className="mt-10 grid border-t border-border md:grid-cols-2 lg:grid-cols-3">
-              {content.services.map((service, index) => <section key={service.title} className="border-b border-border py-7 md:px-6"><span className="text-xs font-black text-accent-strong">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-3 text-xl font-bold text-primary">{service.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{service.text}</p></section>)}
+            <div className="-mx-5 mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:mx-0 md:mt-10 md:grid md:grid-cols-2 md:gap-0 md:overflow-visible md:border-t md:border-border md:px-0 md:pb-0 lg:grid-cols-3">
+              {content.services.map((service, index) => <section key={service.title} className="w-[80%] shrink-0 snap-start rounded-2xl border border-border bg-white p-5 md:w-auto md:rounded-none md:border-0 md:border-b md:bg-transparent md:px-6 md:py-7"><span className="text-xs font-black text-accent-strong">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-3 text-xl font-bold text-primary">{service.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{service.text}</p></section>)}
             </div>
           </Container>
         </section>
@@ -53,6 +56,7 @@ export function LanguageLandingPage({ content }: { content: LanguagePage }) {
           </Container>
         </section>
       </article>
+      <MobileContactBar callLabel={callLabels[content.locale]} whatsappLabel="WhatsApp" />
     </main>
   );
 }

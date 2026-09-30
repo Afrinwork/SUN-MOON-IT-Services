@@ -1,7 +1,8 @@
-import { ServicePage, serviceMetadata } from "@/features/services/components/ServicePage";
+import { serviceMetadata } from "@/features/services/components/ServicePage";
+import { WebDevelopmentPage } from "@/features/services/components/WebDevelopmentPage";
 
 export const metadata = serviceMetadata("webentwicklung");
 
 export default function Page() {
-  return <ServicePage slug="webentwicklung" />;
+  return <WebDevelopmentPage />;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo/createMetadata";
 import { PageHeader } from "@/components/layout/page/PageHeader";
+import { MobileContactBar } from "@/components/mobile/MobileContactBar";
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { CardGrid } from "@/components/ui/card/CardGrid";
 import { CardLink } from "@/components/ui/card/CardLink";
@@ -19,6 +20,7 @@ export default function LeistungenPage() {
         </CardGrid>
       </Section>
       <ContactCTASection />
+      <MobileContactBar />
     </main>
   );
 }

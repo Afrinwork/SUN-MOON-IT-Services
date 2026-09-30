@@ -32,7 +32,7 @@ export function ProcessPageContent() {
         <Container className="py-10 md:hidden">
           <Breadcrumb items={[{ label: "Ablauf" }]} />
           <p className="mobile-reveal mobile-delay-1 mt-8 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">So arbeiten wir</p>
-          <h1 className="mobile-reveal mobile-delay-1 mt-3 text-[2.5rem] font-black leading-[1.02] tracking-[-0.045em]">Schritt für Schritt.<br /><span className="text-accent">Ohne Umwege.</span></h1>
+          <h1 className="mobile-safe-title mobile-reveal mobile-delay-1 mt-3 font-black leading-[1.02] tracking-[-0.045em]">Schritt für Schritt.<br /><span className="text-accent">Ohne Umwege.</span></h1>
           <p className="mobile-reveal mobile-delay-2 mt-5 text-base leading-7 text-white/68">Ein verständlicher Prozess vom ersten Gespräch bis zur laufenden Betreuung.</p>
           <div className="mobile-reveal mobile-delay-3 mt-7 grid grid-cols-2 border-y border-white/10 py-5">
             <div><strong className="block text-2xl text-accent">06</strong><span className="text-xs text-white/55">klare Phasen</span></div>

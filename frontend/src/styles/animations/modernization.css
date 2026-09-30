@@ -1,0 +1,38 @@
+@keyframes modern-compare-enter {
+  from { opacity: 0; transform: translate3d(1.25rem, 0.75rem, 0) scale(0.98); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes modern-transfer {
+  0%, 15% { transform: scaleX(0); opacity: 0.25; }
+  50%, 82% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0.3; }
+}
+
+@keyframes modern-health {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.modern-hero-compare { animation: modern-compare-enter 880ms 160ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.modern-transfer { animation: modern-transfer 5s ease-in-out infinite; transform-origin: left; }
+.modern-health { animation: modern-health 3.2s ease-in-out infinite; }
+
+.modern-reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.05rem, 0);
+  transition: opacity 620ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.modern-reveal.is-visible { opacity: 1; transform: translate3d(0, 0, 0); will-change: auto; }
+
+@media (max-width: 767px) {
+  .modern-transfer, .modern-health { animation: none; }
+  .modern-reveal { transform: translate3d(0, 0.55rem, 0); transition-duration: 440ms, 500ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modern-hero-compare, .modern-transfer, .modern-health { animation: none; }
+  .modern-reveal { opacity: 1; transform: none; transition: none; }
+}

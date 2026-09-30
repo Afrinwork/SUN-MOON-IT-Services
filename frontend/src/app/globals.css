@@ -3,6 +3,12 @@
 @import "../styles/tokens/radius.css";
 @import "../styles/animations/reveal.css";
 @import "../styles/animations/reduced-motion.css";
+@import "../styles/animations/web-development.css";
+@import "../styles/animations/software-development.css";
+@import "../styles/animations/ai-automation.css";
+@import "../styles/animations/app-development.css";
+@import "../styles/animations/microsoft-365.css";
+@import "../styles/animations/modernization.css";
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -12,7 +18,10 @@ body {
   color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
+main { min-width: 0; }
+img, video { max-width: 100%; height: auto; }
 a { text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 ::selection { background: color-mix(in srgb, var(--brand-accent) 24%, white); }
@@ -28,4 +37,42 @@ button, a { -webkit-tap-highlight-color: transparent; }
     linear-gradient(color-mix(in srgb, var(--brand-accent) 9%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in srgb, var(--brand-accent) 9%, transparent) 1px, transparent 1px);
   background-size: 3rem 3rem;
+}
+
+.web-development-page,
+.software-development-page,
+.ai-automation-page,
+.app-development-page,
+.microsoft-365-page,
+.modernization-page {
+  overflow-x: clip;
+}
+
+@media (max-width: 767px) {
+  .service-mobile-title {
+    font-size: clamp(2.1rem, 10vw, 2.5rem);
+    overflow-wrap: anywhere;
+  }
+
+  .service-mobile-flow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .service-mobile-flow > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
+
+  .mobile-safe-title {
+    font-size: clamp(1.9rem, 9.5vw, 2.5rem);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Platz für die feste Kontaktleiste am Handy (MobileContactBar) */
+@media (max-width: 767px) {
+  body:has(.mobile-contact-bar) { padding-bottom: 5.5rem; }
 }

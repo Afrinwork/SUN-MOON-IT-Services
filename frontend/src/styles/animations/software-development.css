@@ -1,0 +1,38 @@
+@keyframes software-panel-enter {
+  from { opacity: 0; transform: translate3d(1.25rem, 0.75rem, 0) scale(0.98); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes software-flow {
+  0%, 15% { transform: scaleX(0); transform-origin: left; opacity: 0.35; }
+  45%, 78% { transform: scaleX(1); transform-origin: left; opacity: 1; }
+  100% { transform: scaleX(1); transform-origin: left; opacity: 0.35; }
+}
+
+@keyframes software-cursor {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.2rem); }
+}
+
+.software-hero-panel { animation: software-panel-enter 850ms 160ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.software-flow-line { animation: software-flow 4.8s ease-in-out infinite; }
+.software-cursor { animation: software-cursor 3.2s ease-in-out infinite; }
+
+.software-reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.2rem, 0);
+  transition: opacity 680ms cubic-bezier(0.22, 1, 0.36, 1), transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.software-reveal.is-visible { opacity: 1; transform: translate3d(0, 0, 0); will-change: auto; }
+
+@media (max-width: 767px) {
+  .software-flow-line, .software-cursor { animation: none; }
+  .software-reveal { transform: translate3d(0, 0.6rem, 0); transition-duration: 460ms, 540ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .software-hero-panel, .software-flow-line, .software-cursor { animation: none; }
+  .software-reveal { opacity: 1; transform: none; transition: none; }
+}

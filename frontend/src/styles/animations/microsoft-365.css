@@ -1,0 +1,44 @@
+@keyframes m365-map-enter {
+  from { opacity: 0; transform: translate3d(1.25rem, 0.8rem, 0) scale(0.98); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes m365-route {
+  0%, 12% { transform: scaleX(0); opacity: 0.25; }
+  48%, 82% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0.3; }
+}
+
+@keyframes m365-node {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-accent) 22%, transparent); }
+  50% { box-shadow: 0 0 0 0.45rem transparent; }
+}
+
+.m365-hero-map { animation: m365-map-enter 880ms 160ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.m365-route { animation: m365-route 5.2s ease-in-out infinite; transform-origin: left; }
+.m365-node { animation: m365-node 3.3s ease-in-out infinite; }
+
+.m365-reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.05rem, 0);
+  transition: opacity 620ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.m365-reveal.is-visible { opacity: 1; transform: translate3d(0, 0, 0); will-change: auto; }
+.m365-tech-card { transition: transform 300ms ease, border-color 300ms ease, background-color 300ms ease; }
+.m365-tech-card:hover { transform: translateY(-0.25rem); }
+.m365-tech-card:hover .m365-tech-icon { transform: translateY(-0.15rem) rotate(-3deg); }
+.m365-tech-icon { transition: transform 300ms ease; }
+
+@media (max-width: 767px) {
+  .m365-route, .m365-node { animation: none; }
+  .m365-reveal { transform: translate3d(0, 0.55rem, 0); transition-duration: 440ms, 500ms; }
+  .m365-tech-card:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m365-hero-map, .m365-route, .m365-node { animation: none; }
+  .m365-reveal { opacity: 1; transform: none; transition: none; }
+  .m365-tech-card, .m365-tech-icon { transition: none; }
+}

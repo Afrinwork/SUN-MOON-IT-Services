@@ -1,0 +1,51 @@
+@keyframes web-browser-enter {
+  from { opacity: 0; transform: translate3d(1.5rem, 0.75rem, 0) scale(0.975); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes web-scan {
+  0%, 18% { transform: translateX(-110%); }
+  72%, 100% { transform: translateX(260%); }
+}
+
+@keyframes web-status-pulse {
+  0%, 100% { opacity: 0.45; box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-accent) 30%, transparent); }
+  50% { opacity: 1; box-shadow: 0 0 0 0.35rem transparent; }
+}
+
+.web-hero-visual {
+  animation: web-browser-enter 850ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.web-preview-scan {
+  animation: web-scan 5.5s ease-in-out infinite;
+}
+
+.web-status-dot {
+  animation: web-status-pulse 2.8s ease-in-out infinite;
+}
+
+.web-reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.35rem, 0);
+  transition:
+    opacity 680ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.web-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+@media (max-width: 767px) {
+  .web-preview-scan,
+  .web-status-dot { animation: none; }
+
+  .web-reveal {
+    transform: translate3d(0, 0.65rem, 0);
+    transition-duration: 460ms, 540ms;
+  }
+}

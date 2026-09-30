@@ -12,7 +12,7 @@ export function CardLink({ href, title, text, eyebrow, icon }: Props) {
       <span className="flex min-w-0 flex-1 flex-col">
         {eyebrow && <span className="text-xs font-bold uppercase tracking-widest text-accent-strong">{eyebrow}</span>}
         <span className="flex items-center justify-between gap-2 md:mt-1">
-          <h3 className="text-base font-bold text-primary md:text-xl">{title}</h3>
+          <h3 className="min-w-0 break-words text-base font-bold text-primary md:text-xl">{title}</h3>
           <ArrowUpRight size={18} className="shrink-0 text-accent-strong md:hidden" aria-hidden="true" />
         </span>
         <p className="mt-1 flex-1 text-sm leading-6 text-muted md:mt-3 md:text-base md:leading-7">{text}</p>

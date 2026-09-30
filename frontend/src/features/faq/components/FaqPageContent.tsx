@@ -65,7 +65,7 @@ export function FaqPageContent({ items }: { items: FaqItem[] }) {
         <Container className="py-10 md:hidden">
           <Breadcrumb items={[{ label: "FAQ" }]} />
           <p className="mobile-reveal mobile-delay-1 mt-8 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Gut zu wissen</p>
-          <h1 className="mobile-reveal mobile-delay-1 mt-3 text-[2.5rem] font-black leading-[1.03] tracking-[-0.045em]">Ihre Fragen.<br /><span className="text-accent">Klar beantwortet.</span></h1>
+          <h1 className="mobile-safe-title mobile-reveal mobile-delay-1 mt-3 font-black leading-[1.03] tracking-[-0.045em]">Ihre Fragen.<br /><span className="text-accent">Klar beantwortet.</span></h1>
           <p className="mobile-reveal mobile-delay-2 mt-5 text-base leading-7 text-white/68">Kompakte Antworten zu Projekt, Kosten und Betreuung.</p>
           <div className="mobile-reveal mobile-delay-3 mt-7 flex flex-wrap gap-2 text-xs font-semibold text-white/70">
             {['Kosten', 'Ablauf', 'Betreuung'].map((label) => <span key={label} className="rounded-full border border-white/15 bg-white/6 px-3 py-2">{label}</span>)}

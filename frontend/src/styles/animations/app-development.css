@@ -1,0 +1,39 @@
+@keyframes app-phone-enter {
+  from { opacity: 0; transform: translate3d(1.4rem, 1rem, 0) rotate(1.5deg) scale(0.975); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) rotate(0) scale(1); }
+}
+
+@keyframes app-notification {
+  0%, 12% { opacity: 0; transform: translateY(-0.45rem); }
+  28%, 78% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0.72; transform: translateY(0); }
+}
+
+@keyframes app-progress {
+  0%, 15% { transform: scaleX(0.28); }
+  55%, 82% { transform: scaleX(0.82); }
+  100% { transform: scaleX(0.28); }
+}
+
+.app-hero-phone { animation: app-phone-enter 900ms 160ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.app-notification { animation: app-notification 5s ease-in-out infinite; }
+.app-progress { animation: app-progress 4.6s ease-in-out infinite; transform-origin: left; }
+
+.app-reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.2rem, 0);
+  transition: opacity 680ms cubic-bezier(0.22, 1, 0.36, 1), transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.app-reveal.is-visible { opacity: 1; transform: translate3d(0, 0, 0); will-change: auto; }
+
+@media (max-width: 767px) {
+  .app-notification, .app-progress { animation: none; }
+  .app-reveal { transform: translate3d(0, 0.6rem, 0); transition-duration: 460ms, 540ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-hero-phone, .app-notification, .app-progress { animation: none; }
+  .app-reveal { opacity: 1; transform: none; transition: none; }
+}

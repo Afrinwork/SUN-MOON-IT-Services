@@ -41,7 +41,7 @@ export function TechnologyPageContent() {
         <Container className="py-10 md:hidden">
           <Breadcrumb items={[{ label: "Technologien" }]} />
           <p className="mobile-reveal mobile-delay-1 mt-8 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Unser Werkzeugkasten</p>
-          <h1 className="mobile-reveal mobile-delay-1 mt-3 text-[2.5rem] font-black leading-[1.02] tracking-[-0.045em]">Technologie.<br /><span className="text-accent">Klar eingesetzt.</span></h1>
+          <h1 className="mobile-safe-title mobile-reveal mobile-delay-1 mt-3 font-black leading-[1.02] tracking-[-0.045em]">Technologie.<br /><span className="text-accent">Klar eingesetzt.</span></h1>
           <p className="mobile-reveal mobile-delay-2 mt-5 text-base leading-7 text-white/68">Breites technisches Know-how – passend zur Aufgabe ausgewählt.</p>
           <div className="mobile-reveal mobile-delay-3 mt-7 grid grid-cols-2 border-y border-white/10 py-5">
             <div><strong className="block text-2xl text-accent">{technologyCategories.length}</strong><span className="text-xs text-white/55">Fachbereiche</span></div>

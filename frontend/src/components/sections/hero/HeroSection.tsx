@@ -83,7 +83,7 @@ export function HeroSection() {
         <div className="mobile-reveal mobile-delay-1 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/7 px-3 py-2 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white/75">
           <Sparkles size={14} className="text-accent" /> IT-Dienstleister · Seelze &amp; Hannover
         </div>
-        <h1 className="mobile-reveal mobile-delay-1 mt-6 text-[2.55rem] font-black leading-[1.02] tracking-[-0.045em]">
+        <h1 className="mobile-safe-title mobile-reveal mobile-delay-1 mt-6 font-black leading-[1.02] tracking-[-0.045em]">
           Digitale Lösungen, die <span className="text-accent">weiterbringen.</span>
         </h1>
         <p className="mobile-reveal mobile-delay-2 mt-5 text-base leading-7 text-white/68">

@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Clock } from "lucide-react";
 import { PageHeader } from "@/components/layout/page/PageHeader";
+import { MobileContactBar } from "@/components/mobile/MobileContactBar";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/container/Container";
 import { blogPosts, findBlogPost } from "@/content/blog";
 import { getTopic } from "@/content/blog/topics";
 import { BlogArticleBody } from "@/features/blog/components/BlogArticleBody";
-import { BlogMobileContactBar } from "@/features/blog/components/BlogMobileContactBar";
+
 import { BlogRelatedService } from "@/features/blog/components/BlogRelatedService";
 import { BlogTocDesktop, BlogTocMobile } from "@/features/blog/components/BlogToc";
 import { formatDate } from "@/features/blog/headingId";
@@ -34,7 +35,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
   const topic = getTopic(post.topic);
   return (
-    <main className="pb-24 md:pb-0">
+    <main>
       <JsonLd data={blogPostingSchema(post)} />
       <PageHeader eyebrow={topic.shortTitle} title={post.title} breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: topic.title, href: `/blog/thema/${topic.slug}` }]}>
         <span className="flex items-center gap-2 text-sm text-white/70"><Clock size={15} /> {post.readingMinutes} Min. Lesezeit · {formatDate(post.published)}</span>
@@ -48,7 +49,7 @@ export default async function BlogPostPage({ params }: Props) {
         </article>
         <aside><BlogTocDesktop sections={post.sections} /></aside>
       </Container>
-      <BlogMobileContactBar />
+      <MobileContactBar />
     </main>
   );
 }

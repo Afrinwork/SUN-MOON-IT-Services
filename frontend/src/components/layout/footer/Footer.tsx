@@ -8,14 +8,14 @@ import { CookieSettingsButton } from "@/features/cookies/components/CookieSettin
 export function Footer() {
   return (
     <footer className="bg-primary-deep text-white">
-      <Container className="grid grid-cols-2 gap-x-6 gap-y-10 py-14 md:gap-12 md:py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
-        <div className="col-span-2 lg:col-span-1">
+      <Container className="grid grid-cols-1 gap-x-6 gap-y-10 py-12 min-[380px]:grid-cols-2 md:gap-12 md:py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div className="min-[380px]:col-span-2 lg:col-span-1">
           <div className="mb-5 text-xl font-black">Sun <span className="text-accent">&amp;</span> Moon <span className="block text-sm font-medium text-white/50">IT Software Services</span></div>
           <p className="max-w-sm leading-7 text-white/60">Digitale Lösungen, die Abläufe vereinfachen, Wachstum ermöglichen und langfristig funktionieren.</p>
           <div className="mt-6 space-y-3 text-sm text-white/70">
-            <p className="flex items-center gap-3"><Mail size={16} className="text-accent" /> {siteConfig.email}</p>
-            <p className="flex items-center gap-3"><Phone size={16} className="text-accent" /> {siteConfig.phone}</p>
-            <p className="flex items-center gap-3"><MapPin size={16} className="text-accent" /> {siteConfig.address}</p>
+            <p className="flex min-w-0 items-center gap-3"><Mail size={16} className="shrink-0 text-accent" /><span className="min-w-0 break-all">{siteConfig.email}</span></p>
+            <p className="flex items-center gap-3"><Phone size={16} className="shrink-0 text-accent" /> {siteConfig.phone}</p>
+            <p className="flex items-start gap-3"><MapPin size={16} className="mt-0.5 shrink-0 text-accent" /><span>{siteConfig.address}</span></p>
           </div>
         </div>
         {footerGroups.map((group) => (
