@@ -1,17 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
+/** Freigestelltes Logo (transparenter Hintergrund, ohne Zuschnitt-Trick). */
 export function HeaderLogo() {
   return (
-    <Link href="/" aria-label="Zur Startseite" className="relative block h-12 w-44 shrink-0 overflow-hidden min-[370px]:w-52">
+    <Link href="/" aria-label="Zur Startseite" className="block shrink-0">
       <Image
-        src="/brand/logos/company-logo.png"
+        src="/brand/logos/logo-transparent.png"
         alt="Sun & Moon IT Software Services"
-        width={1777}
-        height={887}
+        width={1538}
+        height={370}
         priority
-        sizes="(max-width: 369px) 176px, 208px"
-        className="absolute -top-[1.9rem] left-0 h-auto w-full"
+        sizes="(max-width: 369px) 150px, 180px"
+        className="h-9 w-auto min-[370px]:h-10"
       />
     </Link>
   );

@@ -5,29 +5,27 @@ import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTAS
 import { CustomersSection } from "@/components/sections/customers/CustomersSection";
 import { HeroSection } from "@/components/sections/hero/HeroSection";
 import { HomePageMotion } from "@/components/sections/home/HomePageMotion";
-import { OwnSoftwareSection } from "@/components/sections/own-software/OwnSoftwareSection";
-import { ProcessSection } from "@/components/sections/process/ProcessSection";
+import { ConnectedResultsSection } from "@/components/sections/results/ConnectedResultsSection";
 import { ServicesSection } from "@/components/sections/services/ServicesSection";
-import { TechnologiesSection } from "@/components/sections/technologies/TechnologiesSection";
-import { TrustSection } from "@/components/sections/trust/TrustSection";
 import { WhyUsSection } from "@/components/sections/why-us/WhyUsSection";
 import { siteConfig } from "@/config/site.config";
 import { createMetadata } from "@/lib/seo/createMetadata";
 
 export const metadata: Metadata = createMetadata({ description: siteConfig.description, path: "" });
 
+/**
+ * Bewusst schlank: klare Abschnitte im Wechsel Dunkel/Weiß.
+ * Ablauf, Technologien und eigene Software haben eigene Seiten.
+ */
 export default function HomePage() {
   return (
     <HomePageMotion>
       <HeroSection />
-      <TrustSection />
+      <ConnectedResultsSection />
       <ServicesSection />
-      <OwnSoftwareSection />
       <ClientProjectsSection />
       <CustomersSection />
       <WhyUsSection />
-      <ProcessSection />
-      <TechnologiesSection />
       <AboutSection />
       <ContactCTASection />
     </HomePageMotion>

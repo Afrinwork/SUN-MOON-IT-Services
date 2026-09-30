@@ -55,6 +55,7 @@ export function HomePageMotion({ children }: HomePageMotionProps) {
     );
 
     sectionContents.forEach((content) => {
+      if (content.closest(".connected-results")) return;
       content.classList.add("home-reveal");
       const items = Array.from(content.querySelectorAll<HTMLElement>(
         ":scope > ul > li, :scope > ol > li, :scope > div > article, :scope > div > div > article",

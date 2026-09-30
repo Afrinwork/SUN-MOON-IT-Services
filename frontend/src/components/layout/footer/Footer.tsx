@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container/Container";
@@ -10,7 +11,7 @@ export function Footer() {
     <footer className="bg-primary-deep text-white">
       <Container className="grid grid-cols-1 gap-x-6 gap-y-10 py-12 min-[380px]:grid-cols-2 md:gap-12 md:py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div className="min-[380px]:col-span-2 lg:col-span-1">
-          <div className="mb-5 text-xl font-black">Sun <span className="text-accent">&amp;</span> Moon <span className="block text-sm font-medium text-white/50">IT Software Services</span></div>
+          <Image src="/brand/logos/logo-on-dark.png" alt={siteConfig.name} width={1538} height={370} sizes="190px" className="mb-6 h-10 w-auto" />
           <p className="max-w-sm leading-7 text-white/60">Digitale Lösungen, die Abläufe vereinfachen, Wachstum ermöglichen und langfristig funktionieren.</p>
           <div className="mt-6 space-y-3 text-sm text-white/70">
             <p className="flex min-w-0 items-center gap-3"><Mail size={16} className="shrink-0 text-accent" /><span className="min-w-0 break-all">{siteConfig.email}</span></p>
