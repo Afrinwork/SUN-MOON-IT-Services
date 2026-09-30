@@ -1,3 +1,4 @@
+import { blogTopics } from "@/content/blog/topics";
 import { services } from "@/features/services/data/services";
 
 export type NavLink = readonly [label: string, href: string];
@@ -19,7 +20,11 @@ export const mainNavigation: NavItem[] = [
       { label: "Kundenprojekte", href: "/projekte/kundenprojekte", text: "Vom Problem zur passenden Lösung." },
     ],
   },
-  { label: "Kunden", href: "/kunden" },
+  {
+    label: "Blog",
+    href: "/blog",
+    children: blogTopics.map((t) => ({ label: t.title, href: `/blog/thema/${t.slug}`, text: t.intro })),
+  },
   {
     label: "Über uns",
     href: "/ueber-uns",
@@ -28,14 +33,15 @@ export const mainNavigation: NavItem[] = [
       { label: "Ablauf", href: "/ablauf", text: "So läuft ein Projekt mit uns ab." },
       { label: "Technologien", href: "/technologien", text: "Die Werkzeuge, mit denen wir arbeiten." },
       { label: "FAQ", href: "/faq", text: "Antworten auf häufige Fragen." },
+      { label: "Sprachen", href: "/sprachen", text: "Beratung auf Deutsch, Englisch, Arabisch, Türkisch und Kurdisch." },
     ],
   },
 ];
 
 export const footerGroups: { title: string; links: NavLink[] }[] = [
   { title: "Leistungen", links: services.map((s) => [s.title, `/leistungen/${s.slug}`] as const) },
-  { title: "Unternehmen", links: [["Projekte", "/projekte"], ["Kunden", "/kunden"], ["Über uns", "/ueber-uns"], ["Kontakt", "/kontakt"]] },
-  { title: "Wissen", links: [["Ablauf", "/ablauf"], ["Technologien", "/technologien"], ["FAQ", "/faq"]] },
+  { title: "Unternehmen", links: [["Projekte", "/projekte"], ["Kunden", "/kunden"], ["Über uns", "/ueber-uns"], ["IT-Service Hannover", "/it-service-hannover"], ["Kontakt", "/kontakt"]] },
+  { title: "Wissen", links: [["Ablauf", "/ablauf"], ["Technologien", "/technologien"], ["Blog", "/blog"], ["FAQ", "/faq"], ["Sprachen", "/sprachen"]] },
 ];
 
 export const legalLinks: NavLink[] = [

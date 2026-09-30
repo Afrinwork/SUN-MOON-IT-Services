@@ -15,7 +15,7 @@ import { faqSchema, serviceSchema } from "@/lib/seo/structuredData";
 
 export function serviceMetadata(slug: string): Metadata {
   const service = getService(slug);
-  return createMetadata({ title: service.title, description: service.short, path: `/leistungen/${slug}` });
+  return createMetadata({ title: `${service.title} in Hannover & Seelze`, description: service.short, path: `/leistungen/${slug}` });
 }
 
 export function ServicePage({ slug }: { slug: string }) {

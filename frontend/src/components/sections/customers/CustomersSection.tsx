@@ -13,7 +13,7 @@ const audiences = [
 
 export function CustomersSection() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-14 md:py-28">
       <Container>
         <SectionHeader eyebrow="Für wen wir arbeiten" title="Für Unternehmen, die weiterkommen wollen." text="Wir unterstützen kleine und mittlere Unternehmen dabei, ihre Abläufe einfacher und digitaler zu machen." centered />
         <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3 lg:grid-cols-6">

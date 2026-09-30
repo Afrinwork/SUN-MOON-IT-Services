@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container/Container";
 
 export function AboutSection() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-14 md:py-28">
       <Container className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="relative mx-auto grid aspect-square w-full max-w-sm place-items-center rounded-[2.5rem] bg-surface">
           <div className="absolute inset-8 rounded-[2rem] border border-accent/25" /><div className="absolute inset-16 rounded-[1.5rem] border border-primary/10" />

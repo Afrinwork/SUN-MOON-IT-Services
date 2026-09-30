@@ -43,8 +43,8 @@ function MobileDashboard() {
         <span className="flex items-center gap-1.5 text-xs font-bold text-accent"><i className="size-2 rounded-full bg-accent" /> Live</span>
       </div>
       <div className="mt-4 grid grid-cols-2 gap-3 border-t border-white/10 pt-4">
-        <div><span className="block text-[0.65rem] uppercase tracking-widest text-white/45">Prozesse</span><strong className="mt-1 block text-xl">24 aktiv</strong></div>
-        <div><span className="block text-[0.65rem] uppercase tracking-widest text-white/45">Effizienz</span><strong className="mt-1 block text-xl text-accent">+38%</strong></div>
+        <div><span className="block text-[0.65rem] uppercase tracking-widest text-white/70">Prozesse</span><strong className="mt-1 block text-xl">24 aktiv</strong></div>
+        <div><span className="block text-[0.65rem] uppercase tracking-widest text-white/70">Effizienz</span><strong className="mt-1 block text-xl text-accent">+38%</strong></div>
       </div>
     </div>
   );
@@ -60,7 +60,7 @@ export function HeroSection() {
       <Container className="relative hidden min-h-[43rem] grid-cols-1 items-center gap-14 py-20 md:grid lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
         <div className="min-w-0">
           <div className="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/7 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white/75">
-            <Sparkles size={15} className="text-accent" /> Digital. Individuell. Zukunftssicher.
+            <Sparkles size={15} className="text-accent" /> IT-Dienstleister · Seelze &amp; Hannover
           </div>
           <h1 className="reveal delay-1 max-w-4xl text-4xl font-black leading-[1.05] tracking-[-0.045em] md:text-6xl lg:text-7xl">
             Digitale Lösungen, die Ihr Unternehmen <span className="text-accent">weiterbringen.</span>
@@ -81,7 +81,7 @@ export function HeroSection() {
 
       <Container className="relative py-12 md:hidden">
         <div className="mobile-reveal mobile-delay-1 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/7 px-3 py-2 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white/75">
-          <Sparkles size={14} className="text-accent" /> Digital. Individuell. Zukunftssicher.
+          <Sparkles size={14} className="text-accent" /> IT-Dienstleister · Seelze &amp; Hannover
         </div>
         <h1 className="mobile-reveal mobile-delay-1 mt-6 text-[2.55rem] font-black leading-[1.02] tracking-[-0.045em]">
           Digitale Lösungen, die <span className="text-accent">weiterbringen.</span>

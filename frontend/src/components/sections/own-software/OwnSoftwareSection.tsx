@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/section/SectionHeader";
 
 export function OwnSoftwareSection() {
   return (
-    <section id="projekte" className="overflow-hidden bg-white py-20 md:py-28">
+    <section id="projekte" className="overflow-hidden bg-white py-14 md:py-28">
       <Container className="grid items-center gap-14 lg:grid-cols-2">
         <div>
           <SectionHeader eyebrow="Eigene Software" title="Produkte, die aus echten Anforderungen entstehen." text="Wir entwickeln eigene Lösungen mit derselben Sorgfalt, die wir in Kundenprojekte investieren – klar, schnell und auf den täglichen Einsatz ausgerichtet." />

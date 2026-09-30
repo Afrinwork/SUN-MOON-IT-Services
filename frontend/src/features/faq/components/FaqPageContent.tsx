@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, ChevronDown, Clock3, MessageCircle, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 import { Breadcrumb } from "@/components/ui/breadcrumb/Breadcrumb";
 import { Container } from "@/components/ui/container/Container";
 import type { FaqItem } from "@/components/ui/faq/FaqList";
@@ -78,7 +79,7 @@ export function FaqPageContent({ items }: { items: FaqItem[] }) {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-strong">Orientierung</p>
             <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-primary">Die wichtigsten Punkte auf einen Blick.</h2>
             <p className="mt-5 leading-7 text-muted">Ihre Frage ist nicht dabei? Schreiben Sie uns direkt. Eine kurze Beschreibung genügt.</p>
-            <a href="/kontakt" className="mt-7 inline-flex items-center gap-2 font-bold text-primary transition hover:text-accent-strong">Persönlich nachfragen <ArrowRight size={17} /></a>
+            <Link href="/kontakt" className="mt-7 inline-flex items-center gap-2 font-bold text-primary transition hover:text-accent-strong">Persönlich nachfragen <ArrowRight size={17} /></Link>
           </aside>
           <DesktopFaqList items={items} />
         </Container>
@@ -91,7 +92,7 @@ export function FaqPageContent({ items }: { items: FaqItem[] }) {
             <MessageCircle size={21} className="text-accent" />
             <h2 className="mt-4 text-xl font-black">Noch etwas unklar?</h2>
             <p className="mt-2 text-sm leading-6 text-white/62">Schreiben Sie uns kurz. Wir antworten persönlich und verständlich.</p>
-            <a href="/kontakt" className="mt-5 flex min-h-12 items-center justify-between rounded-xl bg-accent px-4 font-bold text-primary-deep">Kontakt aufnehmen <ArrowRight size={17} /></a>
+            <Link href="/kontakt" className="mt-5 flex min-h-12 items-center justify-between rounded-xl bg-accent px-4 font-bold text-primary-deep">Kontakt aufnehmen <ArrowRight size={17} /></Link>
           </div>
         </Container>
       </section>

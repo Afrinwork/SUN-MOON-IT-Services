@@ -4,7 +4,7 @@ import type { NavChild } from "@/config/navigation.config";
 export function DesktopDropdown({ items }: { items: NavChild[] }) {
   const wide = items.length > 4;
   return (
-    <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4 opacity-0 transition duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+    <div className="desktop-dropdown invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4 opacity-0 transition duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
       <ul className={`grid gap-1 rounded-2xl border border-border bg-white p-3 shadow-2xl shadow-primary/10 ${wide ? "w-[36rem] grid-cols-2" : "w-80"}`}>
         {items.map((item) => (
           <li key={item.href + item.label}>

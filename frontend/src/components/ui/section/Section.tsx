@@ -8,7 +8,7 @@ type Props = { eyebrow: string; title: string; text?: string; tone?: keyof typeo
 
 export function Section({ eyebrow, title, text, tone = "white", children }: Props) {
   return (
-    <section className={`${tones[tone]} py-16 md:py-24`}>
+    <section className={`${tones[tone]} py-12 md:py-24`}>
       <Container>
         <SectionHeader eyebrow={eyebrow} title={title} text={text} />
         {children}

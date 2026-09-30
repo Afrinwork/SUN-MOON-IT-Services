@@ -1,7 +1,8 @@
 export const company = {
-  intro: "Sun & Moon IT Software Services entwickelt Websites, Apps und individuelle Software für kleine und mittlere Unternehmen.",
-  /** Weitere kurze Absätze zur Geschichte und zum Team. */
+  intro: "Sun & Moon IT Software Services ist Ihr technischer Ansprechpartner für Websites, mobile Apps, individuelle Software und moderne Microsoft-Lösungen.",
   story: [
-    "Wir verbinden moderne Technik mit einem klaren Blick für Ihre Abläufe. Das Ergebnis: Lösungen, die verständlich sind, zuverlässig laufen und mit Ihnen wachsen.",
+    "Von unserem Standort in Seelze aus unterstützen wir kleine und mittlere Unternehmen dabei, digitale Vorhaben verständlich zu planen und zuverlässig umzusetzen.",
+    "Wir betrachten nicht nur einzelne Funktionen, sondern den gesamten Arbeitsablauf dahinter. So entstehen Lösungen, die im Alltag funktionieren, wartbar bleiben und sich bei neuen Anforderungen sinnvoll weiterentwickeln lassen.",
   ],
+  statement: "Gute IT beginnt nicht mit einem Werkzeug, sondern mit dem Verständnis für die Aufgabe.",
 };

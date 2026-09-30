@@ -1,5 +1,6 @@
-import { ArrowRight, Bot, Braces, Check, ChevronDown, Cloud, Code2, Database, GitBranch, Layers3, Settings, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, Bot, Braces, Check, ChevronDown, Cloud, Code2, Database, GitBranch, Layers3, Settings, ShieldCheck, Smartphone, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 import { Breadcrumb } from "@/components/ui/breadcrumb/Breadcrumb";
 import { Container } from "@/components/ui/container/Container";
 import { coreTechnologies, technologyCategories } from "@/content/technologies/technologies";
@@ -9,6 +10,7 @@ const categoryIcons: Record<string, LucideIcon> = {
   "sharepoint-power-platform": Layers3,
   "java-software": Code2,
   "web-apis": Braces,
+  "mobile-apps": Smartphone,
   "data-reporting": Database,
   "automation-ai": Bot,
   "administration-security": ShieldCheck,
@@ -26,10 +28,10 @@ export function TechnologyPageContent() {
             <Breadcrumb items={[{ label: "Technologien" }]} />
             <p className="reveal mt-10 text-xs font-bold uppercase tracking-[0.2em] text-accent">Technologiekompetenz</p>
             <h1 className="reveal delay-1 mt-4 max-w-4xl text-6xl font-black leading-[1.02] tracking-[-0.045em]">Technik, die im Betrieb <span className="text-accent">überzeugt.</span></h1>
-            <p className="reveal delay-2 mt-6 max-w-2xl text-lg leading-8 text-white/68">Von Microsoft 365 über Java und Webentwicklung bis zu Daten, Automatisierung und IT-Administration – sinnvoll kombiniert für tragfähige Lösungen.</p>
+            <p className="reveal delay-2 mt-6 max-w-2xl text-lg leading-8 text-white/68">Von Microsoft 365 über Java, Web- und App-Entwicklung bis zu Daten, Automatisierung und IT-Administration – sinnvoll kombiniert für tragfähige Lösungen.</p>
           </div>
           <div className="reveal delay-2 border-y border-white/12 py-6">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/45">Kerntechnologien</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/70">Kerntechnologien</p>
             <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
               {coreTechnologies.map((technology) => <li key={technology} className="flex items-center gap-2 text-sm font-semibold"><span className="size-1.5 rounded-full bg-accent" />{technology}</li>)}
             </ul>
@@ -42,7 +44,7 @@ export function TechnologyPageContent() {
           <h1 className="mobile-reveal mobile-delay-1 mt-3 text-[2.5rem] font-black leading-[1.02] tracking-[-0.045em]">Technologie.<br /><span className="text-accent">Klar eingesetzt.</span></h1>
           <p className="mobile-reveal mobile-delay-2 mt-5 text-base leading-7 text-white/68">Breites technisches Know-how – passend zur Aufgabe ausgewählt.</p>
           <div className="mobile-reveal mobile-delay-3 mt-7 grid grid-cols-2 border-y border-white/10 py-5">
-            <div><strong className="block text-2xl text-accent">10</strong><span className="text-xs text-white/55">Fachbereiche</span></div>
+            <div><strong className="block text-2xl text-accent">{technologyCategories.length}</strong><span className="text-xs text-white/55">Fachbereiche</span></div>
             <div className="border-l border-white/10 pl-5"><strong className="block text-2xl text-accent">Full Stack</strong><span className="text-xs text-white/55">Von UI bis Betrieb</span></div>
           </div>
         </Container>
@@ -81,7 +83,7 @@ export function TechnologyPageContent() {
         </Container>
 
         <Container className="py-12 md:hidden">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent-strong">10 Fachbereiche</p>
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent-strong">{technologyCategories.length} Fachbereiche</p>
           <h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-primary">Unser technisches Spektrum.</h2>
           <p className="mt-3 text-sm leading-6 text-muted">Öffnen Sie einen Bereich für alle zugehörigen Technologien und Methoden.</p>
 
@@ -110,7 +112,7 @@ export function TechnologyPageContent() {
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-accent">Technologieberatung</p>
             <h2 className="mt-2 text-xl font-black">Welcher Stack passt zu Ihrem Projekt?</h2>
             <p className="mt-2 text-sm leading-6 text-white/62">Wir bewerten Anforderungen und bestehende Systeme, bevor wir Werkzeuge auswählen.</p>
-            <a href="/kontakt" className="mt-5 flex min-h-12 items-center justify-between rounded-xl bg-accent px-4 font-bold text-primary-deep">Projekt besprechen <ArrowRight size={17} /></a>
+            <Link href="/kontakt" className="mt-5 flex min-h-12 items-center justify-between rounded-xl bg-accent px-4 font-bold text-primary-deep">Projekt besprechen <ArrowRight size={17} /></Link>
           </div>
         </Container>
       </section>

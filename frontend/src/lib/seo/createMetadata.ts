@@ -15,7 +15,8 @@ const ogImage = { url: "/brand/logos/company-logo.png", width: 1774, height: 887
 export function createMetadata({ title, description, path, noIndex = false }: Options): Metadata {
   const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
   return {
-    title,
+    // Ohne eigenen Titel greift der Standardtitel aus dem Root-Layout (title: undefined würde ihn löschen).
+    ...(title ? { title } : {}),
     description,
     alternates: { canonical: path || "/" },
     openGraph: {

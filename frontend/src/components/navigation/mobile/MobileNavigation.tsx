@@ -15,6 +15,8 @@ export function MobileNavigation() {
     const menu = menuRef.current;
     if (!menu) return;
 
+    const activeElement = document.activeElement;
+    if (activeElement instanceof HTMLElement && menu.contains(activeElement)) activeElement.blur();
     menu.open = false;
     menu.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((submenu) => {
       submenu.open = false;

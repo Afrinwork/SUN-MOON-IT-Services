@@ -8,8 +8,8 @@ import { CookieSettingsButton } from "@/features/cookies/components/CookieSettin
 export function Footer() {
   return (
     <footer className="bg-primary-deep text-white">
-      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
-        <div>
+      <Container className="grid grid-cols-2 gap-x-6 gap-y-10 py-14 md:gap-12 md:py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div className="col-span-2 lg:col-span-1">
           <div className="mb-5 text-xl font-black">Sun <span className="text-accent">&amp;</span> Moon <span className="block text-sm font-medium text-white/50">IT Software Services</span></div>
           <p className="max-w-sm leading-7 text-white/60">Digitale Lösungen, die Abläufe vereinfachen, Wachstum ermöglichen und langfristig funktionieren.</p>
           <div className="mt-6 space-y-3 text-sm text-white/70">
@@ -21,17 +21,29 @@ export function Footer() {
         {footerGroups.map((group) => (
           <div key={group.title}>
             <h2 className="mb-4 text-sm font-bold uppercase tracking-widest text-accent">{group.title}</h2>
-            <ul className="space-y-3 text-sm text-white/65">
-              {group.links.map(([label, href]) => <li key={href}><Link href={href} className="transition hover:text-white">{label}</Link></li>)}
+            <ul className="space-y-1 text-sm text-white/70">
+              {group.links.map(([label, href]) => <li key={href}><Link href={href} className="inline-block py-1.5 transition hover:text-white">{label}</Link></li>)}
             </ul>
           </div>
         ))}
       </Container>
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-4 py-6 text-xs text-white/45 md:flex-row md:items-center md:justify-between">
+        <Container className="flex flex-col gap-3 py-5 text-sm md:flex-row md:items-center">
+          <span className="font-bold text-white">Wir sprechen:</span>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-white/60" aria-label="Sprachen">
+            <Link href="/sprachen" className="transition hover:text-white">Deutsch</Link>
+            <Link href="/en" hrefLang="en" className="transition hover:text-white">English</Link>
+            <Link href="/ar" hrefLang="ar" lang="ar" dir="rtl" className="transition hover:text-white">العربية</Link>
+            <Link href="/tr" hrefLang="tr" className="transition hover:text-white">Türkçe</Link>
+            <Link href="/ku" hrefLang="ku" className="transition hover:text-white">Kurdî</Link>
+          </nav>
+        </Container>
+      </div>
+      <div className="border-t border-white/10">
+        <Container className="flex flex-col gap-4 py-6 text-xs text-white/70 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} {siteConfig.name}</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            {legalLinks.map(([label, href]) => <Link key={href} href={href} className="transition hover:text-white">{label}</Link>)}
+            {legalLinks.map(([label, href]) => <Link key={href} href={href} className="inline-block py-1.5 transition hover:text-white">{label}</Link>)}
             <CookieSettingsButton />
           </div>
         </Container>

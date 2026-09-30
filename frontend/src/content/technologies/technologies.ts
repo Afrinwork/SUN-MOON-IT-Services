@@ -5,6 +5,7 @@ export const coreTechnologies = [
   "JavaScript",
   "ReactJS",
   "TypeScript",
+  "iOS & Android",
   "SharePoint",
   "Power Apps",
   "Power Automate",
@@ -41,6 +42,13 @@ export const technologyCategories: TechnologyCategory[] = [
     shortTitle: "Web & APIs",
     description: "Moderne Oberflächen und verlässliche Verbindungen zwischen Anwendungen und Diensten.",
     items: ["JavaScript", "TypeScript", "ReactJS", "Next.js", "HTML5", "CSS3", "Tailwind CSS", "JSON", "XML", "REST APIs", "Web Services", "Microsoft Graph API", "WordPress", "Anbindung externer Systeme"],
+  },
+  {
+    id: "mobile-apps",
+    title: "Mobile Apps & Betrieb",
+    shortTitle: "Mobile Apps",
+    description: "Apps für iOS und Android – von der technischen Konzeption über die Veröffentlichung bis zum zuverlässigen Betrieb.",
+    items: ["iOS App-Entwicklung", "Android App-Entwicklung", "Cross-Platform Apps", "Progressive Web Apps", "Responsive App-Oberflächen", "Offline-Funktionalität", "Push-Benachrichtigungen", "REST-API-Anbindung", "Anbindung bestehender Systeme", "App Store Connect", "Apple App Store Veröffentlichung", "Google Play Console", "Google Play Veröffentlichung", "App-Signierung & Zertifikate", "Release Management", "Serverauswahl & Beschaffung", "Serverbereitstellung", "Serververwaltung & Monitoring", "Backend-Anbindung", "Wartung & App-Updates"],
   },
   {
     id: "data-reporting",

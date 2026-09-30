@@ -9,7 +9,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: `${siteConfig.name} | Websites, Apps & Software`, template: `%s | ${siteConfig.name}` },
+  title: { default: `IT-Dienstleister in Hannover & Seelze – Websites, Apps & Software | ${siteConfig.shortName}`, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   formatDetection: { telephone: true, email: false, address: false },

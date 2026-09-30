@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Sun & Moon",
   /** Bei eigener Domain hier eintragen – steuert Canonical-Links, Sitemap und Social-Vorschau. */
   url: "https://frontend-six-alpha-27.vercel.app",
-  description: "Websites, Apps und individuelle Software für kleine und mittlere Unternehmen – modern, schnell und verständlich umgesetzt.",
+  description: "IT-Dienstleister aus Seelze für die Region Hannover: Websites, Apps, individuelle Software, Microsoft 365 und IT-Betreuung – persönlich und verständlich.",
   phone: "0176 21795711",
   whatsappUrl: "https://wa.me/491762179571",
   email: "itsoftwareml@gmail.com",

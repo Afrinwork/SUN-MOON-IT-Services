@@ -17,6 +17,12 @@ a { text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 ::selection { background: color-mix(in srgb, var(--brand-accent) 24%, white); }
 
+.desktop-nav-closed .desktop-dropdown {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .network-grid {
   background-image:
     linear-gradient(color-mix(in srgb, var(--brand-accent) 9%, transparent) 1px, transparent 1px),
