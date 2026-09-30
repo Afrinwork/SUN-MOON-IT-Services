@@ -3,13 +3,7 @@ import Link from "next/link";
 import { HeaderLogo } from "@/components/navigation/header/HeaderLogo";
 import { Container } from "@/components/ui/container/Container";
 import { ButtonLink } from "@/components/ui/button/ButtonLink";
-
-const nav = [
-  ["Leistungen", "/leistungen"],
-  ["Projekte", "/projekte"],
-  ["Kunden", "/kunden"],
-  ["Über uns", "/ueber-uns"],
-];
+import { mainNavigation as nav } from "@/config/navigation.config";
 
 export function SiteHeader() {
   return (

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-
-const paths = ["", "/leistungen", "/projekte", "/kunden", "/ueber-uns", "/kontakt", "/impressum", "/datenschutz", "/agb"];
+import { allRoutes } from "@/config/routes.config";
+import { siteConfig } from "@/config/site.config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return paths.map((path) => ({ url: `https://www.ml-it-services.de${path}`, lastModified: new Date() }));
+  return allRoutes().map((path) => ({ url: `${siteConfig.url}${path}`, lastModified: new Date() }));
 }

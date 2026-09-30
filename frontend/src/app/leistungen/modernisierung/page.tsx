@@ -1,3 +1,7 @@
-import { PageContainer } from "@/components/layout/page/PageContainer";
+import { ServicePage, serviceMetadata } from "@/features/services/components/ServicePage";
 
-export default PageContainer;
+export const metadata = serviceMetadata("modernisierung");
+
+export default function Page() {
+  return <ServicePage slug="modernisierung" />;
+}
