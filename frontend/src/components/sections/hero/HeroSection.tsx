@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Code2, Layers3, Sparkles } from "lucide-react";
+import { HeroBackgroundVideo } from "@/components/sections/hero/HeroBackgroundVideo";
 import { ButtonLink } from "@/components/ui/button/ButtonLink";
 import { Container } from "@/components/ui/container/Container";
 
@@ -52,7 +53,8 @@ function MobileDashboard() {
 export function HeroSection() {
   return (
     <section className="home-hero relative overflow-hidden bg-primary-deep text-white">
-      <div className="network-grid hero-grid absolute inset-0 opacity-40" aria-hidden="true" />
+      <HeroBackgroundVideo />
+      <div className="network-grid hero-grid absolute inset-0 opacity-20" aria-hidden="true" />
       <div className="hero-glow absolute -right-24 top-20 size-80 rounded-full bg-accent/20 blur-3xl" aria-hidden="true" />
 
       <Container className="relative hidden min-h-[43rem] grid-cols-1 items-center gap-14 py-20 md:grid lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
