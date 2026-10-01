@@ -1,15 +1,20 @@
 import type { LucideIcon } from "lucide-react";
 import type { BlogTopicSlug } from "@/content/blog/topics";
 
-/** Antwort auf die themenspezifische Rückfrage – liefert eigene Reaktion und Empfehlung. */
+/** Antwort auf eine themenspezifische Rückfrage. */
 export type FollowUpAnswer = {
   id: string;
   label: string;
   reply: string;
-  recommendation: string;
-  /** Überschreibt das Paket der Lösung (z. B. Relaunch → Website Business). */
+  /** Nur bei der ersten Rückfrage: die persönliche Empfehlung. */
+  recommendation?: string;
+  /** Zusätzlicher Hinweis für die Übersicht („Darauf achten wir“). */
+  extra?: string;
+  /** Überschreibt das empfohlene Paket (z. B. Relaunch → Website Business). */
   packageId?: string;
 };
+
+export type FollowUpQuestion = { id: string; question: string; answers: FollowUpAnswer[] };
 
 export type Solution = {
   id: string;
@@ -17,14 +22,18 @@ export type Solution = {
   icon: LucideIcon;
   /** Erste Antwort des Assistenten nach der Auswahl. */
   reply: string;
-  followUp: { question: string; answers: FollowUpAnswer[] };
+  /** Zwei themenspezifische Rückfragen – die erste liefert die Empfehlung. */
+  followUps: [FollowUpQuestion, FollowUpQuestion];
   solves: string[];
   steps: string[];
-  /** Was der Kunde für den Start vorbereiten kann. */
   prepare: string[];
   tips: string[];
-  /** Verweis auf ein Paket aus content/pricing/packages.ts – liefert den Preis. */
+  /** Standardpaket aus content/pricing/packages.ts. */
   packageId: string;
+  /** Weitere passende Pakete für die Preisübersicht. */
+  priceOptions: string[];
+  /** Slugs verwandter Leistungen für „Passt gut dazu“. */
+  related: string[];
   duration: string;
   serviceHref: string;
   blogTopic: BlogTopicSlug;
@@ -32,3 +41,6 @@ export type Solution = {
 
 export type TeamSize = { id: string; label: string; reply: string };
 export type Timing = { id: string; label: string; startText: string };
+/** maxEuro: Obergrenze zum Abgleich mit dem Paketpreis; null = unbekannt bzw. offen. */
+export type Budget = { id: string; label: string; reply: string; maxEuro: number | null };
+export type CareOption = { id: string; label: string; reply: string; withCare: boolean };
