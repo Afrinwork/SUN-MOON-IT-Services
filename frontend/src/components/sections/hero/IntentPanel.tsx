@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ChevronRight, Languages, MapPin, Sparkles } from "lucide-react";
 import { intents, intentTitle } from "@/content/home/intents";
 
-/** Desktop: „What can we build for you?“ – Anliegen wählen, direkt zur passenden Lösung. */
+/** Desktop: „Was dürfen wir für Sie umsetzen?“ – Anliegen wählen, direkt zur passenden Lösung. */
 export function IntentPanel() {
   return (
     <div className="hero-visual-enter relative mx-auto w-full min-w-0 max-w-xl">

@@ -24,7 +24,7 @@ export function DesktopNavigation() {
     <nav
       ref={navigationRef}
       aria-label="Hauptnavigation"
-      className={`hidden items-center gap-8 lg:flex ${forceClosed ? "desktop-nav-closed" : ""}`}
+      className={`hidden items-center gap-5 lg:flex xl:gap-8 ${forceClosed ? "desktop-nav-closed" : ""}`}
       onClick={handleNavigation}
       onMouseEnter={() => setForceClosed(false)}
       onMouseLeave={() => setForceClosed(false)}
@@ -33,10 +33,10 @@ export function DesktopNavigation() {
         if (event.key === "Escape") closeNavigation();
       }}
     >
-      <ul className="flex items-center gap-7">
-        {mainNavigation.map((item) => <DesktopNavItem key={item.href} item={item} />)}
+      <ul className="flex items-center gap-4 xl:gap-7">
+        {mainNavigation.map((item, index) => <DesktopNavItem key={item.href} item={item} align={index >= mainNavigation.length - 2 ? "right" : "center"} />)}
       </ul>
-      <ButtonLink href={projectCta.href} className="group min-h-11 px-5 py-2 shadow-lg shadow-accent/30">{projectCta.label} <ArrowRight size={16} className="transition group-hover:translate-x-0.5" /></ButtonLink>
+      <ButtonLink href={projectCta.href} className="group min-h-11 whitespace-nowrap px-4 py-2 shadow-lg shadow-accent/30 xl:px-5">{projectCta.label} <ArrowRight size={16} className="transition group-hover:translate-x-0.5" /></ButtonLink>
     </nav>
   );
 }
