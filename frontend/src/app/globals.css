@@ -76,3 +76,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 767px) {
   body:has(.mobile-contact-bar) { padding-bottom: 5.5rem; }
 }
+
+/* Gut sichtbarer Tastatur-Fokus auf hellem und dunklem Hintergrund */
+:where(a, button, summary, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/footer/Footer";
 import { SiteHeader } from "@/components/layout/header/SiteHeader";
+import { SkipLink } from "@/components/layout/SkipLink";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site.config";
 import { CookieNotice } from "@/features/cookies/components/CookieNotice";
@@ -26,8 +27,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="de" className={sans.variable}>
       <body>
         <JsonLd data={organizationSchema()} />
+        <SkipLink />
         <SiteHeader />
-        {children}
+        <div id="inhalt" tabIndex={-1} className="outline-none">{children}</div>
         <Footer />
         <CookieNotice />
       </body>

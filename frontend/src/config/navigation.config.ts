@@ -12,6 +12,7 @@ export const mainNavigation: NavItem[] = [
     href: "/leistungen",
     children: services.map((s) => ({ label: s.title, href: `/leistungen/${s.slug}`, text: s.short })),
   },
+  { label: "Preise", href: "/preise" },
   {
     label: "Projekte",
     href: "/projekte",
@@ -40,7 +41,7 @@ export const mainNavigation: NavItem[] = [
 
 export const footerGroups: { title: string; links: NavLink[] }[] = [
   { title: "Leistungen", links: services.map((s) => [s.title, `/leistungen/${s.slug}`] as const) },
-  { title: "Unternehmen", links: [["Projekte", "/projekte"], ["Kunden", "/kunden"], ["Über uns", "/ueber-uns"], ["IT-Service Hannover", "/it-service-hannover"], ["Kontakt", "/kontakt"]] },
+  { title: "Unternehmen", links: [["Preise", "/preise"], ["Projekte", "/projekte"], ["Kunden", "/kunden"], ["Über uns", "/ueber-uns"], ["IT-Service Hannover", "/it-service-hannover"], ["Kontakt", "/kontakt"]] },
   { title: "Wissen", links: [["Ablauf", "/ablauf"], ["Technologien", "/technologien"], ["Blog", "/blog"], ["FAQ", "/faq"], ["Sprachen", "/sprachen"]] },
 ];
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Check, Code2, Languages, MapPin, MessageCircle } from "lucide-react";
+import { PortraitCardMobile, PortraitPhoto } from "@/components/about/PortraitPhoto";
 import { Breadcrumb } from "@/components/ui/breadcrumb/Breadcrumb";
 import { Container } from "@/components/ui/container/Container";
 import { company } from "@/content/about/company";
@@ -40,7 +41,7 @@ export function AboutPageContent() {
       <div className="hidden md:block">
         <section className="bg-white py-24">
           <Container className="grid gap-16 lg:grid-cols-[0.72fr_1.28fr]">
-            <div><p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-strong">Wer wir sind</p><h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-primary">Ein IT-Partner mit Blick für das Wesentliche.</h2><blockquote className="mt-10 border-l-2 border-accent pl-5 text-xl font-bold leading-8 text-primary">„{company.statement}“</blockquote></div>
+            <div><p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-strong">Wer wir sind</p><h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-primary">Ein IT-Partner mit Blick für das Wesentliche.</h2><div className="mt-10"><PortraitPhoto /></div><blockquote className="mt-14 border-l-2 border-accent pl-5 text-xl font-bold leading-8 text-primary">„{company.statement}“</blockquote></div>
             <div className="space-y-5 text-lg leading-8 text-muted"><p className="font-semibold text-foreground">{company.intro}</p>{company.story.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<div className="grid grid-cols-2 gap-5 border-t border-border pt-7"><div className="flex gap-3"><MapPin size={19} className="mt-1 shrink-0 text-accent-strong" /><span><strong className="block text-sm text-primary">Regional verwurzelt</strong><span className="text-sm">Wilhelm-Busch-Straße 8, Seelze</span></span></div><div className="flex gap-3"><Languages size={19} className="mt-1 shrink-0 text-accent-strong" /><span><strong className="block text-sm text-primary">Mehrsprachig</strong><span className="text-sm">Deutsch, Englisch, Arabisch, Türkisch und Kurdisch</span></span></div></div></div>
           </Container>
         </section>
@@ -66,7 +67,7 @@ export function AboutPageContent() {
       </div>
 
       <div className="md:hidden">
-        <section className="bg-white py-12"><Container><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent-strong">Wer wir sind</p><h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-primary">Ihr technischer Ansprechpartner.</h2><p className="mt-5 text-base font-semibold leading-7 text-foreground">{company.intro}</p><div className="mt-4 space-y-4 text-sm leading-6 text-muted">{company.story.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div><blockquote className="mt-7 border-l-2 border-accent pl-4 font-bold leading-6 text-primary">„{company.statement}“</blockquote></Container></section>
+        <section className="bg-white py-12"><Container><div className="mb-7"><PortraitCardMobile /></div><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent-strong">Wer wir sind</p><h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-primary">Ihr technischer Ansprechpartner.</h2><p className="mt-5 text-base font-semibold leading-7 text-foreground">{company.intro}</p><div className="mt-4 space-y-4 text-sm leading-6 text-muted">{company.story.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div><blockquote className="mt-7 border-l-2 border-accent pl-4 font-bold leading-6 text-primary">„{company.statement}“</blockquote></Container></section>
 
         <section className="bg-surface py-12"><Container><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent-strong">Unsere Haltung</p><h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-primary">Darauf können Sie sich verlassen.</h2><div className="mt-7 divide-y divide-border border-y border-border">{values.map((value, index) => <article key={value.title} className="grid grid-cols-[2rem_1fr] gap-3 py-5"><span className="text-xs font-black text-accent-strong">0{index + 1}</span><div><h3 className="font-bold text-primary">{value.title}</h3><p className="mt-1 text-sm leading-6 text-muted">{value.text}</p></div></article>)}</div></Container></section>
 

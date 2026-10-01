@@ -8,6 +8,8 @@ export const siteConfig = {
   whatsappUrl: "https://wa.me/491762179571",
   email: "itsoftwareml@gmail.com",
   instagramUrl: "https://www.instagram.com/sunmoon_it_services/",
+  /** Optional: NEXT_PUBLIC_TIKTOK_URL setzen, sobald das echte Profil bestätigt ist. */
+  tiktokUrl: process.env.NEXT_PUBLIC_TIKTOK_URL ?? "",
   address: "Wilhelm-Busch-Straße 8, 30926 Seelze",
   addressLines: ["Wilhelm-Busch-Straße 8", "30926 Seelze"],
   openingHours: "Mo–Fr, 9–17 Uhr",

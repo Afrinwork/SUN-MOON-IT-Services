@@ -1,14 +1,15 @@
-import { ArrowUpRight, Clock3, Instagram, Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Clock3, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { EmailIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons/PlatformIcons";
 import { Container } from "@/components/ui/container/Container";
 import { siteConfig } from "@/config/site.config";
 
 const telHref = `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`;
 
 const channels = [
-  { icon: MessageCircle, label: "WhatsApp", value: "Nachricht senden", desktopValue: "Direkt eine Nachricht senden", description: "Ideal für eine kurze Projektidee oder eine erste Frage.", href: siteConfig.whatsappUrl, external: true, featured: true },
+  { icon: WhatsAppIcon, label: "WhatsApp", value: "Nachricht senden", desktopValue: "Direkt eine Nachricht senden", description: "Ideal für eine kurze Projektidee oder eine erste Frage.", href: siteConfig.whatsappUrl, external: true, featured: true },
   { icon: Phone, label: "Telefon", value: siteConfig.phone, desktopValue: siteConfig.phone, description: "Für ein persönliches, unverbindliches Erstgespräch.", href: telHref, external: false, featured: false },
-  { icon: Mail, label: "E-Mail", value: siteConfig.email, desktopValue: siteConfig.email, description: "Für Anforderungen, Dokumente oder eine ausführlichere Anfrage.", href: `mailto:${siteConfig.email}`, external: false, featured: false },
-  { icon: Instagram, label: "Instagram", value: "@sunmoon_it_services", desktopValue: "@sunmoon_it_services", description: "Folgen Sie uns für Einblicke, Projekte und Neuigkeiten.", href: siteConfig.instagramUrl, external: true, featured: false },
+  { icon: EmailIcon, label: "E-Mail", value: siteConfig.email, desktopValue: siteConfig.email, description: "Für Anforderungen, Dokumente oder eine ausführlichere Anfrage.", href: `mailto:${siteConfig.email}`, external: false, featured: false },
+  { icon: InstagramIcon, label: "Instagram", value: "@sunmoon_it_services", desktopValue: "@sunmoon_it_services", description: "Folgen Sie uns für Einblicke, Projekte und Neuigkeiten.", href: siteConfig.instagramUrl, external: true, featured: false },
 ] as const;
 
 const projectQuestions = ["Was möchten Sie digital verbessern?", "Wer soll die Lösung später nutzen?", "Gibt es einen gewünschten Zeitrahmen?"];

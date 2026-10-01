@@ -1,4 +1,5 @@
-import { ArrowUpRight, CheckCircle2, Mail, MessageCircle, PhoneCall, Sparkles } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, PhoneCall, Sparkles } from "lucide-react";
+import { EmailIcon, WhatsAppIcon } from "@/components/icons/PlatformIcons";
 import { Breadcrumb } from "@/components/ui/breadcrumb/Breadcrumb";
 import { Container } from "@/components/ui/container/Container";
 import { siteConfig } from "@/config/site.config";
@@ -24,7 +25,7 @@ export function ContactHero() {
           </p>
           <div className="reveal delay-3 mt-8 flex gap-3">
             <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-primary-deep transition duration-300 hover:-translate-y-0.5 hover:bg-white">
-              <MessageCircle size={18} /> Per WhatsApp schreiben
+              <WhatsAppIcon size={19} /> Per WhatsApp schreiben
             </a>
             <a href={telHref} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-bold transition duration-300 hover:-translate-y-0.5 hover:bg-white/12">
               <PhoneCall size={17} /> Direkt anrufen
@@ -35,7 +36,7 @@ export function ContactHero() {
         <aside className="reveal delay-2 rounded-[2rem] border border-white/12 bg-white/8 p-3 shadow-2xl shadow-black/20 backdrop-blur-md">
           <div className="rounded-[1.4rem] bg-white p-8 text-foreground">
             <div className="flex items-start justify-between gap-5">
-              <span className="grid size-13 place-items-center rounded-2xl bg-primary text-accent"><MessageCircle size={24} /></span>
+              <span className="grid size-13 place-items-center rounded-2xl bg-primary text-accent"><WhatsAppIcon size={25} /></span>
               <span className="inline-flex items-center gap-2 rounded-full bg-surface-accent px-3 py-1.5 text-xs font-bold text-accent-strong"><i className="size-2 rounded-full bg-accent" /> Kontakt offen</span>
             </div>
             <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-accent-strong">Schnellster Weg</p>
@@ -56,11 +57,11 @@ export function ContactHero() {
         <p className="mobile-reveal mobile-delay-2 mt-5 text-base leading-7 text-white/68">Eine kurze Nachricht genügt für eine erste unverbindliche Einschätzung.</p>
 
         <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="mobile-reveal mobile-delay-3 mt-7 flex min-h-14 items-center justify-between rounded-2xl bg-accent px-5 font-bold text-primary-deep">
-          <span className="flex items-center gap-3"><MessageCircle size={20} /> WhatsApp öffnen</span><ArrowUpRight size={18} />
+          <span className="flex items-center gap-3"><WhatsAppIcon size={21} /> WhatsApp öffnen</span><ArrowUpRight size={18} />
         </a>
         <div className="mobile-reveal mobile-delay-4 mt-3 grid grid-cols-2 gap-3">
           <a href={telHref} className="flex min-h-13 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/6 text-sm font-bold"><PhoneCall size={17} className="text-accent" /> Anrufen</a>
-          <a href={`mailto:${siteConfig.email}`} className="flex min-h-13 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/6 text-sm font-bold"><Mail size={17} className="text-accent" /> E-Mail</a>
+          <a href={`mailto:${siteConfig.email}`} className="flex min-h-13 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/6 text-sm font-bold"><EmailIcon size={18} className="text-accent" /> E-Mail</a>
         </div>
         <div className="mobile-reveal mobile-delay-4 mt-7 flex items-center gap-2 border-t border-white/10 pt-5 text-xs text-white/55"><CheckCircle2 size={15} className="text-accent" /> Persönlich, direkt und unverbindlich</div>
       </Container>

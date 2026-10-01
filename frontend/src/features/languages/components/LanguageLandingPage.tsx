@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Check, Globe2, MessageCircle } from "lucide-react";
+import { ArrowRight, Check, Globe2 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/PlatformIcons";
 import { MobileContactBar } from "@/components/mobile/MobileContactBar";
 import { Container } from "@/components/ui/container/Container";
 import { languagePages, type LanguagePage } from "@/content/languages/language-pages";
@@ -20,7 +21,7 @@ export function LanguageLandingPage({ content }: { content: LanguagePage }) {
             <p className="reveal text-xs font-bold uppercase tracking-[0.18em] text-accent">{content.eyebrow}</p>
             <h1 className="reveal delay-1 mt-4 text-4xl font-black leading-[1.03] tracking-[-0.045em] md:text-6xl lg:text-7xl">{content.title}</h1>
             <p className="reveal delay-2 mt-6 max-w-3xl text-lg leading-8 text-white/68 md:text-xl">{content.intro}</p>
-            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="reveal delay-3 mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-primary-deep transition hover:-translate-y-0.5 hover:bg-white"><MessageCircle size={18} />{content.contactLabel}</a>
+            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="reveal delay-3 mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-primary-deep transition hover:-translate-y-0.5 hover:bg-white"><WhatsAppIcon size={19} />{content.contactLabel}</a>
           </div>
         </Container>
       </header>
