@@ -3,7 +3,6 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { HeroBackgroundVideo } from "@/components/sections/hero/HeroBackgroundVideo";
 import { HeroContactButtons } from "@/components/sections/hero/HeroContactButtons";
 import { HeroProofPoints } from "@/components/sections/hero/HeroProofPoints";
-import { IntentGridMobile } from "@/components/sections/hero/IntentGridMobile";
 import { IntentPanel } from "@/components/sections/hero/IntentPanel";
 import { Container } from "@/components/ui/container/Container";
 import { heroContent } from "@/content/home/hero";
@@ -51,7 +50,7 @@ export function HeroSection() {
         <IntentPanel />
       </Container>
 
-      {/* Mobil: eigener Aufbau – Kontakt zuerst, dann Anliegen als Kacheln */}
+      {/* Mobil: kurz gehalten – Überschrift, Text, Kontakt, Vertrauenspunkte */}
       <Container className="relative py-10 md:hidden">
         <Eyebrow text={heroContent.mobileEyebrow} className="mobile-reveal mobile-delay-1 px-3 py-2 text-[0.62rem] tracking-[0.12em]" />
         <h1 className="mobile-safe-title mobile-reveal mobile-delay-1 mt-5 font-black leading-[1.05] tracking-[-0.04em]">
@@ -59,7 +58,6 @@ export function HeroSection() {
         </h1>
         <p className="mobile-reveal mobile-delay-2 mt-4 text-base leading-7 text-white/75">{heroContent.text}</p>
         <div className="mobile-reveal mobile-delay-3 mt-6"><HeroContactButtons /></div>
-        <div className="mobile-reveal mobile-delay-4 mt-8"><IntentGridMobile /></div>
         <div className="mobile-reveal mobile-delay-4 mt-7 border-t border-white/10 pt-6"><HeroProofPoints /></div>
       </Container>
     </section>

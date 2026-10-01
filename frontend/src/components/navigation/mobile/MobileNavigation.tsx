@@ -32,7 +32,7 @@ export function MobileNavigation() {
   };
 
   return (
-    <details ref={menuRef} className="group relative lg:hidden" onClick={handleNavigation} onKeyDown={(event) => {
+    <details ref={menuRef} className="group relative xl:hidden" onClick={handleNavigation} onKeyDown={(event) => {
       if (event.key !== "Escape") return;
       closeMenu();
       menuRef.current?.querySelector<HTMLElement>("summary")?.focus();

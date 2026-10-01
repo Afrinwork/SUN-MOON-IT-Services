@@ -6,17 +6,17 @@ export type NavLink = readonly [label: string, href: string];
 export type NavChild = { label: string; href: string; text?: string };
 export type NavItem = { label: string; href: string; children?: NavChild[] };
 
-/** Hauptmenü: Lösungen | Projekte | Eigene Software | Unternehmen | Ratgeber – plus „Projekt starten“-Button. */
+/** Hauptmenü: Lösungen | Lösung finden | Preise | Projekte | Eigene Software | Unternehmen | Ratgeber – plus „Projekt starten“-Button. */
 export const mainNavigation: NavItem[] = [
   {
     label: "Lösungen",
     href: "/leistungen",
     children: [
       ...services.map((s) => ({ label: s.title, href: `/leistungen/${s.slug}`, text: s.short })),
-      { label: "Lösung finden", href: "/loesung-finden", text: "In 30 Sekunden: Ablauf, Preis und Start für Ihr Vorhaben." },
-      { label: "Preise", href: "/preise", text: "Pakete und Kosten im Überblick." },
     ],
   },
+  { label: "Lösung finden", href: "/loesung-finden" },
+  { label: "Preise", href: "/preise" },
   { label: "Projekte", href: "/projekte/kundenprojekte" },
   { label: "Eigene Software", href: "/projekte/eigene-software" },
   {
