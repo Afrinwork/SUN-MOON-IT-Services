@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone } from "lucide-react";
-import { EmailIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/components/icons/PlatformIcons";
+import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa6";
+import { EmailIcon } from "@/components/icons/PlatformIcons";
 import { Container } from "@/components/ui/container/Container";
 import { footerGroups, legalLinks } from "@/config/navigation.config";
 import { siteConfig } from "@/config/site.config";
@@ -20,14 +21,14 @@ export function Footer() {
             <p className="flex items-start gap-3"><MapPin size={16} className="mt-0.5 shrink-0 text-accent" /><span>{siteConfig.address}</span></p>
           </div>
           <div className="mt-6 flex items-center gap-2" aria-label="Kontakt und soziale Netzwerke">
-            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" className="grid size-10 place-items-center rounded-full bg-white text-white transition duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#25D366]/25"><WhatsAppIcon size={25} /></a>
-            <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" className="grid size-10 place-items-center rounded-full bg-white text-white transition duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#ee2a7b]/25"><InstagramIcon size={25} /></a>
+            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" className="grid size-10 place-items-center text-[#25D366] transition duration-300 hover:-translate-y-1 hover:scale-110"><FaWhatsapp size={25} /></a>
+            <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" className="grid size-10 place-items-center text-[#ee2a7b] transition duration-300 hover:-translate-y-1 hover:scale-110"><FaInstagram size={25} /></a>
             {siteConfig.tiktokUrl ? (
-              <a href={siteConfig.tiktokUrl} target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" className="grid size-10 place-items-center rounded-full border border-white/15 bg-black text-white transition duration-300 hover:-translate-y-1 hover:border-[#25f4ee]/60"><TikTokIcon size={27} /></a>
+              <a href={siteConfig.tiktokUrl} target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" className="grid size-10 place-items-center text-white transition duration-300 hover:-translate-y-1 hover:scale-110 hover:text-[#25f4ee]"><FaTiktok size={25} /></a>
             ) : (
-              <span role="img" aria-label="TikTok – Profillink folgt" title="TikTok – Profillink folgt" className="grid size-10 place-items-center rounded-full border border-white/15 bg-black text-white/80"><TikTokIcon size={27} /></span>
+              <span role="img" aria-label="TikTok – Profillink folgt" title="TikTok – Profillink folgt" className="grid size-10 place-items-center text-white/80"><FaTiktok size={25} /></span>
             )}
-            <a href={`mailto:${siteConfig.email}`} aria-label="E-Mail" title="E-Mail" className="grid size-10 place-items-center rounded-full bg-accent text-primary-deep transition duration-300 hover:-translate-y-1 hover:bg-white"><EmailIcon size={21} /></a>
+            <a href={`mailto:${siteConfig.email}`} aria-label="E-Mail" title="E-Mail" className="grid size-10 place-items-center text-accent transition duration-300 hover:-translate-y-1 hover:scale-110 hover:text-white"><EmailIcon size={23} /></a>
           </div>
         </div>
         {footerGroups.map((group) => (

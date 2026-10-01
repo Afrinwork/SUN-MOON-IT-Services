@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Container } from "@/components/ui/container/Container";
 import { SectionHeader } from "@/components/ui/section/SectionHeader";
 
-const tones = { white: "bg-white", surface: "bg-surface" };
+const tones = { white: "bg-white", surface: "bg-surface", blue: "bg-surface-accent" };
 
 type Props = { eyebrow: string; title: string; text?: string; tone?: keyof typeof tones; children?: ReactNode };
 

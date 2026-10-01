@@ -3,8 +3,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { HeroBackgroundVideo } from "@/components/sections/hero/HeroBackgroundVideo";
 import { HeroContactButtons } from "@/components/sections/hero/HeroContactButtons";
 import { HeroProofPoints } from "@/components/sections/hero/HeroProofPoints";
-import { HeroServiceChips } from "@/components/sections/hero/HeroServiceChips";
-import { HeroServicePanel } from "@/components/sections/hero/HeroServicePanel";
+import { IntentGridMobile } from "@/components/sections/hero/IntentGridMobile";
+import { IntentPanel } from "@/components/sections/hero/IntentPanel";
 import { Container } from "@/components/ui/container/Container";
 import { heroContent } from "@/content/home/hero";
 
@@ -39,7 +39,7 @@ export function HeroSection() {
         <div className="min-w-0">
           <Eyebrow className="reveal mb-6 px-4 py-2 text-xs tracking-widest" />
           <h1 className="reveal delay-1 max-w-3xl text-5xl font-black leading-[1.05] tracking-[-0.04em] lg:text-6xl">
-            {heroContent.titleStart} <span className="hero-accent-text text-accent">{heroContent.titleAccent}</span>
+            {heroContent.titleStart} <span className="hero-accent-text inline-block text-accent">{heroContent.titleAccent}</span>
           </h1>
           <p className="reveal delay-2 mt-6 max-w-2xl text-lg leading-8 text-white/75 lg:text-xl">{heroContent.text}</p>
           <div className="reveal delay-3 mt-8"><HeroContactButtons /></div>
@@ -48,18 +48,18 @@ export function HeroSection() {
           </Link>
           <div className="mt-9 border-t border-white/10 pt-6"><HeroProofPoints /></div>
         </div>
-        <HeroServicePanel />
+        <IntentPanel />
       </Container>
 
-      {/* Mobil: eigener Aufbau – Kontakt zuerst, Leistungen zum Wischen */}
+      {/* Mobil: eigener Aufbau – Kontakt zuerst, dann Anliegen als Kacheln */}
       <Container className="relative py-10 md:hidden">
         <Eyebrow text={heroContent.mobileEyebrow} className="mobile-reveal mobile-delay-1 px-3 py-2 text-[0.62rem] tracking-[0.12em]" />
         <h1 className="mobile-safe-title mobile-reveal mobile-delay-1 mt-5 font-black leading-[1.05] tracking-[-0.04em]">
-          {heroContent.mobileTitleStart} <span className="hero-accent-text text-accent">{heroContent.titleAccent}</span>
+          {heroContent.mobileTitleStart} <span className="hero-accent-text inline-block text-accent">{heroContent.titleAccent}</span>
         </h1>
         <p className="mobile-reveal mobile-delay-2 mt-4 text-base leading-7 text-white/75">{heroContent.text}</p>
         <div className="mobile-reveal mobile-delay-3 mt-6"><HeroContactButtons /></div>
-        <div className="mobile-reveal mobile-delay-4 mt-7"><HeroServiceChips /></div>
+        <div className="mobile-reveal mobile-delay-4 mt-8"><IntentGridMobile /></div>
         <div className="mobile-reveal mobile-delay-4 mt-7 border-t border-white/10 pt-6"><HeroProofPoints /></div>
       </Container>
     </section>

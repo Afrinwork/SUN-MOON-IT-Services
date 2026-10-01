@@ -7,6 +7,7 @@ import { HeroSection } from "@/components/sections/hero/HeroSection";
 import { HomePageMotion } from "@/components/sections/home/HomePageMotion";
 import { ConnectedResultsSection } from "@/components/sections/results/ConnectedResultsSection";
 import { ServicesSection } from "@/components/sections/services/ServicesSection";
+import { HomeTechnologiesSection } from "@/components/sections/technologies/HomeTechnologiesSection";
 import { WhyUsSection } from "@/components/sections/why-us/WhyUsSection";
 import { siteConfig } from "@/config/site.config";
 import { createMetadata } from "@/lib/seo/createMetadata";
@@ -21,6 +22,7 @@ export default function HomePage() {
   return (
     <HomePageMotion>
       <HeroSection />
+      <HomeTechnologiesSection />
       <ConnectedResultsSection />
       <ServicesSection />
       <ClientProjectsSection />

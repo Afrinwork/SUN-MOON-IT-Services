@@ -19,9 +19,9 @@ export default function PreisePage() {
     <main>
       <JsonLd data={faqSchema(pricingPage.faq)} />
       <PageHeader eyebrow="Preise" title={pricingPage.title} text={pricingPage.intro} breadcrumbs={[{ label: "Preise" }]} />
-      <Section eyebrow="Pakete" title="Was kostet was?" tone="surface"><PricePackageList /></Section>
+      <Section eyebrow="Pakete" title="Was kostet was?" tone="blue"><PricePackageList /></Section>
       <Section eyebrow="Ablauf" title="So entsteht Ihr Preis"><FeatureGrid items={pricingPage.steps} /></Section>
-      <Section eyebrow="Transparenz" title="Was den Preis beeinflusst" tone="surface"><CheckList items={pricingPage.priceFactors} /></Section>
+      <Section eyebrow="Transparenz" title="Was den Preis beeinflusst" tone="blue"><CheckList items={pricingPage.priceFactors} /></Section>
       <Section eyebrow="FAQ" title="Fragen zu den Kosten"><FaqList items={pricingPage.faq} /></Section>
       <ContactCTASection />
       <MobileContactBar />

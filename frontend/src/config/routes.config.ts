@@ -5,7 +5,7 @@ import { services } from "@/features/services/data/services";
 import { blogPosts, postsByTopic } from "@/content/blog";
 import { blogTopics } from "@/content/blog/topics";
 
-const staticRoutes = ["", "/leistungen", "/preise", "/projekte", "/ueber-uns", "/ablauf", "/technologien", "/faq", "/kontakt", "/blog", "/it-service-hannover", "/sprachen", "/en", "/ar", "/tr", "/ku"];
+const staticRoutes = ["", "/leistungen", "/loesung-finden", "/preise", "/projekte", "/ueber-uns", "/ablauf", "/technologien", "/faq", "/kontakt", "/blog", "/it-service-hannover", "/sprachen", "/en", "/ar", "/tr", "/ku"];
 
 /** Alle indexierbaren Seiten – leere Listen und Rechtstexte (noindex) bleiben draußen. */
 export function allRoutes(): string[] {

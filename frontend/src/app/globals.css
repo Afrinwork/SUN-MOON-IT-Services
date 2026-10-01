@@ -83,3 +83,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   outline-offset: 3px;
   border-radius: 6px;
 }
+
+/* Lösungs-Assistent: Nachrichten erscheinen sanft, „tippende“ Punkte */
+@keyframes finder-pop { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: none; } }
+@keyframes finder-dot { 0%, 80%, 100% { opacity: 0.25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+.finder-pop { animation: finder-pop 380ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.finder-dots i { display: block; width: 6px; height: 6px; border-radius: 999px; background: var(--brand-accent-strong); animation: finder-dot 1s infinite ease-in-out; }
+.finder-dots i:nth-child(2) { animation-delay: 0.15s; }
+.finder-dots i:nth-child(3) { animation-delay: 0.3s; }
+@media (prefers-reduced-motion: reduce) { .finder-pop, .finder-dots i { animation: none; } }
