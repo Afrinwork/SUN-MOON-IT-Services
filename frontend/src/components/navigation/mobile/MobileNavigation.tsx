@@ -40,7 +40,7 @@ export function MobileNavigation() {
       <summary className="grid size-11 cursor-pointer list-none place-items-center rounded-xl border border-border text-primary">
         <Menu size={21} /><span className="sr-only">Menü öffnen</span>
       </summary>
-      <nav className="absolute right-0 top-14 max-h-[calc(100dvh-6rem)] w-[min(18rem,calc(100vw-2.5rem))] overscroll-contain overflow-y-auto rounded-2xl border border-border bg-white p-3 shadow-2xl" aria-label="Mobile Navigation">
+      <nav className="absolute right-0 top-14 max-h-[calc(100dvh-5.5rem)] w-[min(18rem,calc(100vw-2.5rem))] touch-pan-y overscroll-contain overflow-y-auto rounded-2xl border border-border bg-white p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-2xl [-webkit-overflow-scrolling:touch]" aria-label="Mobile Navigation">
         {mainNavigation.map((item) => <MobileNavItem key={item.href} item={item} />)}
         <ButtonLink href={projectCta.href} className="mt-2 w-full">{projectCta.label} <ArrowRight size={17} /></ButtonLink>
       </nav>

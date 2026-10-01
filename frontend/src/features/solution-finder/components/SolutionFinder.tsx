@@ -1,63 +1,64 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { FaqItem } from "@/components/ui/faq/FaqList";
 import { solutions } from "@/content/solution-finder/solutions";
-import { timings } from "@/content/solution-finder/timings";
 import { AssistantBubble, TypingIndicator, UserBubble } from "@/features/solution-finder/components/ChatBubbles";
 import { ChoiceList } from "@/features/solution-finder/components/ChoiceList";
+import { QuickQuestions } from "@/features/solution-finder/components/QuickQuestions";
 import { SolutionResult } from "@/features/solution-finder/components/SolutionResult";
-import type { Solution, Timing } from "@/features/solution-finder/types";
+import { buildConversation, type Answers, type Step } from "@/features/solution-finder/conversation";
 
-type Phase = "need" | "thinking-need" | "timing" | "thinking-timing" | "result";
+type Thinking = "flow" | "qa" | null;
 
 /** Geführter Lösungs-Assistent: fest hinterlegte Antworten, keine externe KI, keine Datenübertragung. */
 export function SolutionFinder() {
-  const [phase, setPhase] = useState<Phase>("need");
-  const [solution, setSolution] = useState<Solution | null>(null);
-  const [timing, setTiming] = useState<Timing | null>(null);
+  const [needId, setNeedId] = useState<string | null>(null);
+  const [answers, setAnswers] = useState<Answers>({});
+  const [asked, setAsked] = useState<FaqItem[]>([]);
+  const [thinking, setThinking] = useState<Thinking>(null);
   const endRef = useRef<HTMLDivElement>(null);
 
-  const think = (next: Phase) => {
+  const { messages, pendingStep, selection } = buildConversation(needId, answers);
+  const visibleMessages = thinking === "flow" ? messages.slice(0, -1) : messages;
+
+  const pause = (kind: Exclude<Thinking, null>) => {
+    setThinking(kind);
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.setTimeout(() => setPhase(next), reduced ? 0 : 900);
+    window.setTimeout(() => setThinking(null), reduced ? 0 : 850);
   };
 
-  const chooseNeed = (id: string) => {
-    setSolution(solutions.find((s) => s.id === id) ?? null);
-    setPhase("thinking-need");
-    think("timing");
-  };
-
-  const chooseTiming = (id: string) => {
-    setTiming(timings.find((t) => t.id === id) ?? null);
-    setPhase("thinking-timing");
-    think("result");
-  };
-
-  const restart = () => { setSolution(null); setTiming(null); setPhase("need"); };
+  const chooseNeed = (id: string) => { setNeedId(id); pause("flow"); };
+  const answer = (step: Step, id: string) => { setAnswers((prev) => ({ ...prev, [step.id]: id })); pause("flow"); };
+  const ask = (item: FaqItem) => { setAsked((prev) => [...prev, item]); pause("qa"); };
+  const restart = () => { setNeedId(null); setAnswers({}); setAsked([]); setThinking(null); };
 
   useEffect(() => {
-    if (phase !== "need") endRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [phase]);
+    if (needId) endRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [needId, answers, asked.length, thinking]);
 
   return (
     <div className="space-y-4" aria-live="polite">
-      <AssistantBubble>Hallo! Ich helfe Ihnen, die passende Lösung zu finden. <strong>Was brauchen Sie?</strong></AssistantBubble>
-      {phase === "need" && <ChoiceList choices={solutions} onSelect={chooseNeed} />}
-
-      {solution && <UserBubble>{solution.label}</UserBubble>}
-      {phase === "thinking-need" && <TypingIndicator />}
-      {solution && phase !== "thinking-need" && phase !== "need" && (
-        <AssistantBubble>{solution.reply} <strong>Wann möchten Sie starten?</strong></AssistantBubble>
+      {visibleMessages.map((message, index) =>
+        message.from === "user"
+          ? <UserBubble key={index}>{message.text}</UserBubble>
+          : <AssistantBubble key={index}>{message.text} {message.question && <strong>{message.question}</strong>}</AssistantBubble>,
       )}
-      {phase === "timing" && <ChoiceList choices={timings} onSelect={chooseTiming} />}
 
-      {timing && <UserBubble>{timing.label}</UserBubble>}
-      {phase === "thinking-timing" && <TypingIndicator />}
-      {phase === "result" && solution && timing && (
+      {thinking === "flow" && <TypingIndicator />}
+      {!thinking && !needId && <ChoiceList choices={solutions} onSelect={chooseNeed} />}
+      {!thinking && pendingStep && <ChoiceList choices={pendingStep.choices} onSelect={(id) => answer(pendingStep, id)} />}
+
+      {selection && thinking !== "flow" && (
         <>
-          <AssistantBubble>Hier ist Ihre persönliche Übersicht zu <strong>„{solution.label}“</strong>:</AssistantBubble>
-          <SolutionResult solution={solution} timing={timing} onRestart={restart} />
+          <SolutionResult selection={selection} onRestart={restart} />
+          {asked.map((item, index) => (
+            <div key={item.question} className="space-y-4">
+              <UserBubble>{item.question}</UserBubble>
+              {thinking === "qa" && index === asked.length - 1 ? <TypingIndicator label="Assistent schreibt …" /> : <AssistantBubble>{item.answer}</AssistantBubble>}
+            </div>
+          ))}
+          {!thinking && <QuickQuestions asked={asked} onAsk={ask} />}
         </>
       )}
       <div ref={endRef} />
