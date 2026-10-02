@@ -7,6 +7,7 @@ export const heroContent = {
   mobileTitleStart: "Websites, Apps und Software",
   mobileText: "Wir entwickeln Websites, Apps und individuelle Software und unterstützen Sie bei Microsoft 365.",
   text: "Wir entwickeln Websites, Apps und individuelle Software und unterstützen Unternehmen bei Microsoft 365 – persönlich, verständlich und zuverlässig.",
+  finderCta: "Lösung finden",
   primaryCta: "Kostenlos anfragen",
   secondaryCta: "Jetzt anrufen",
   servicesLink: "Unsere Leistungen im Überblick",

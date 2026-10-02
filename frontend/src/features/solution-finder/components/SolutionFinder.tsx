@@ -27,7 +27,8 @@ export function SolutionFinder() {
   const [asked, setAsked] = useState<FaqItem[]>([]);
   const [thinking, setThinking] = useState<Thinking>(null);
   const [showHistory, setShowHistory] = useState(false);
-  const endRef = useRef<HTMLDivElement>(null);
+  const activeMessageRef = useRef<HTMLDivElement>(null);
+  const latestQuestionRef = useRef<HTMLDivElement>(null);
 
   const solution = solutions.find((s) => s.id === needId) ?? null;
   const { messages, pendingStep, selection, progress } = buildConversation(needId, answers);
@@ -54,7 +55,12 @@ export function SolutionFinder() {
   const askText = (question: string) => askItem({ question, answer: findAnswer(question)?.answer ?? fallback });
 
   useEffect(() => {
-    if (needId || asked.length) endRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (!needId && !asked.length) return;
+    const frame = window.requestAnimationFrame(() => {
+      const target = asked.length ? latestQuestionRef.current : activeMessageRef.current;
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [needId, answers, asked.length, thinking]);
 
   return (
@@ -80,11 +86,16 @@ export function SolutionFinder() {
               <History size={14} /> {hiddenMessageCount} frühere Nachrichten anzeigen
             </button>
           )}
-          {displayedMessages.map((message, index) =>
-            message.from === "user"
-              ? <UserBubble key={`${message.text}-${index}`}>{message.text}</UserBubble>
-              : <AssistantBubble key={`${message.text}-${index}`}>{message.text} {message.question && <strong>{message.question}</strong>}</AssistantBubble>,
-          )}
+          {displayedMessages.map((message, index) => {
+            const isLatest = index === displayedMessages.length - 1;
+            return (
+              <div key={`${message.text}-${index}`} ref={isLatest ? activeMessageRef : undefined} className={isLatest ? "finder-active-message scroll-mt-40" : undefined}>
+                {message.from === "user"
+                  ? <UserBubble>{message.text}</UserBubble>
+                  : <AssistantBubble current={isLatest && !thinking}>{message.text} {message.question && <strong className="text-primary">{message.question}</strong>}</AssistantBubble>}
+              </div>
+            );
+          })}
 
           {thinking === "flow" && <TypingIndicator label="prüft Ihre Auswahl …" />}
           {!thinking && !needId && <ChoiceList choices={solutions} onSelect={chooseNeed} />}
@@ -94,12 +105,11 @@ export function SolutionFinder() {
           {selection && thinking !== "flow" && <SolutionResult selection={selection} />}
 
           {asked.map((item, index) => (
-            <div key={`${item.question}-${index}`} className="space-y-4">
+            <div key={`${item.question}-${index}`} ref={index === asked.length - 1 ? latestQuestionRef : undefined} className="space-y-4 scroll-mt-40">
               <UserBubble>{item.question}</UserBubble>
-              {thinking === "qa" && index === asked.length - 1 ? <TypingIndicator /> : <AssistantBubble>{item.answer}</AssistantBubble>}
+              {thinking === "qa" && index === asked.length - 1 ? <TypingIndicator /> : <AssistantBubble current={index === asked.length - 1}>{item.answer}</AssistantBubble>}
             </div>
           ))}
-          <div ref={endRef} className="scroll-mb-32" />
         </div>
       </div>
 

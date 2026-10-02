@@ -114,7 +114,8 @@ export function MobileNavigation() {
 
           <nav className="mobile-menu-scroll min-h-0 flex-1 touch-pan-y overflow-y-auto overscroll-contain px-3 py-3 [-webkit-overflow-scrolling:touch]" aria-label="Mobile Navigation" onClick={handleNavigation}>
             <div className="space-y-1">
-              {mainNavigation.filter((item) => item.href !== "/loesung-finden").map((item, index) => <MobileNavItem key={item.href} item={item} index={index} />)}
+              <MobileNavItem item={{ label: "Startseite", href: "/" }} index={0} />
+              {mainNavigation.filter((item) => item.href !== "/loesung-finden").map((item, index) => <MobileNavItem key={item.href} item={item} index={index + 1} />)}
             </div>
           </nav>
 
