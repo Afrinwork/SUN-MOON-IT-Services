@@ -9,6 +9,9 @@
 @import "../styles/animations/app-development.css";
 @import "../styles/animations/microsoft-365.css";
 @import "../styles/animations/modernization.css";
+@import "../styles/pages/mobile-home.css";
+@import "../styles/pages/solution-finder.css";
+@import "../styles/pages/mobile-navigation.css";
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }

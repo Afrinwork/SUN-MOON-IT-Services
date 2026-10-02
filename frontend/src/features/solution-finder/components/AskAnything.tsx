@@ -14,10 +14,10 @@ export function AskAnything({ onAsk }: { onAsk: (question: string) => void }) {
     setValue("");
   };
   return (
-    <form onSubmit={submit} className="finder-pop flex items-center gap-2 rounded-full border border-border bg-white p-1.5 pl-4 shadow-sm focus-within:border-accent md:ml-12" role="search">
+    <form onSubmit={submit} className="finder-composer flex items-center gap-2 rounded-2xl border border-border bg-white p-1.5 pl-4 shadow-lg shadow-primary/8 transition focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10" role="search">
       <label htmlFor="finder-frage" className="sr-only">Eigene Frage stellen</label>
-      <input id="finder-frage" value={value} onChange={(e) => setValue(e.target.value)} maxLength={140} autoComplete="off" placeholder="Eigene Frage stellen, z. B. „Was kostet eine App?“" className="min-w-0 flex-1 bg-transparent py-2 text-sm text-foreground outline-none placeholder:text-muted" />
-      <button type="submit" aria-label="Frage senden" className="grid size-10 shrink-0 place-items-center rounded-full bg-accent text-primary-deep transition hover:bg-accent-strong hover:text-white"><Send size={17} /></button>
+      <input id="finder-frage" value={value} onChange={(e) => setValue(e.target.value)} maxLength={140} autoComplete="off" placeholder="Nachricht schreiben …" className="min-w-0 flex-1 bg-transparent py-2 text-sm text-foreground outline-none placeholder:text-muted" />
+      <button type="submit" aria-label="Frage senden" className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent text-primary-deep transition active:scale-95 hover:bg-accent-strong hover:text-white"><Send size={17} /></button>
     </form>
   );
 }

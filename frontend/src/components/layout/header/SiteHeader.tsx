@@ -5,8 +5,8 @@ import { Container } from "@/components/ui/container/Container";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-white/90 backdrop-blur-xl">
-      <Container className="flex h-18 items-center justify-between">
+    <header className="site-header sticky top-0 z-50 border-b border-border/80 bg-white/90 backdrop-blur-xl">
+      <Container className="flex h-16 items-center justify-between md:h-18">
         <HeaderLogo />
         <DesktopNavigation />
         <MobileNavigation />

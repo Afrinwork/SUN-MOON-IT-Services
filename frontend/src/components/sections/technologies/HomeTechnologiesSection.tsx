@@ -99,22 +99,22 @@ const technologies: Technology[] = [
 
 export function HomeTechnologiesSection() {
   return (
-    <section className="overflow-hidden bg-white py-12 md:py-20">
+    <section className="home-technologies overflow-hidden bg-white py-9 md:py-20">
       <Container>
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-strong">Technologien &amp; Plattformen</p>
-            <h2 className="mt-3 text-[1.75rem] font-black leading-tight tracking-[-0.035em] text-primary min-[380px]:text-3xl md:text-4xl">Vertraute Werkzeuge. Passend kombiniert.</h2>
-            <p className="mt-4 max-w-2xl leading-7 text-muted">Von Apps und Websites bis Microsoft 365, Automatisierung und Daten: Wir wählen die Technik passend zu Ihrem Vorhaben.</p>
+            <h2 className="mt-3 text-[1.75rem] font-black leading-tight tracking-[-0.035em] text-primary min-[380px]:text-3xl md:text-4xl">Mit diesen Systemen arbeiten wir.</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-muted md:mt-4 md:text-base md:leading-7">Zum Beispiel Microsoft 365, WordPress, React, iOS und Android. Wir wählen aus, was zu Ihrem Projekt passt.</p>
           </div>
           <Link href="/technologien" className="group inline-flex shrink-0 items-center gap-2 text-sm font-bold text-accent-strong transition hover:text-primary">
             Alle Technologien <ArrowRight size={17} className="transition group-hover:translate-x-1" />
           </Link>
         </div>
 
-        <ul className="-mx-5 mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-4 md:gap-3 md:overflow-visible md:px-0 lg:grid-cols-6 xl:grid-cols-7">
+        <ul className="-mx-5 mt-6 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:mx-0 md:mt-8 md:grid md:grid-cols-4 md:gap-3 md:overflow-visible md:px-0 lg:grid-cols-6 xl:grid-cols-7">
           {technologies.map((technology) => (
-            <li key={technology.name} className="group flex min-h-28 w-32 shrink-0 snap-start flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-surface/70 p-4 text-center transition duration-300 hover:-translate-y-1 hover:border-accent/45 hover:bg-white hover:shadow-xl hover:shadow-primary/7 md:w-auto">
+            <li key={technology.name} className="group flex min-h-24 w-28 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-surface/70 p-3 text-center transition duration-300 active:scale-[0.98] md:min-h-28 md:w-auto md:gap-3 md:p-4 md:hover:-translate-y-1 md:hover:border-accent/45 md:hover:bg-white md:hover:shadow-xl md:hover:shadow-primary/7">
               <span className="grid size-9 place-items-center text-[2rem] transition duration-300 group-hover:scale-110 [&>svg]:size-8">{technology.icon}</span>
               <span className="text-xs font-bold leading-5 text-primary">{technology.name}</span>
             </li>

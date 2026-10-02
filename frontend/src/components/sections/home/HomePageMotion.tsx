@@ -91,7 +91,7 @@ export function HomePageMotion({ children }: HomePageMotionProps) {
         }
       });
       const items = Array.from(content.querySelectorAll<HTMLElement>(
-        ":scope > ul > li, :scope > ol > li, :scope > div > article, :scope > div > div > article",
+        ":scope > ul > li, :scope > ol > li, :scope > nav > a, :scope > div > article, :scope > div > div > article",
       ));
       items.slice(0, 12).forEach((item, index) => {
         item.classList.add("home-item-reveal", "home-motion-card");

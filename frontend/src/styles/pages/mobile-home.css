@@ -1,0 +1,104 @@
+@keyframes mobile-shortcut-in {
+  from { opacity: 0; transform: translateY(0.75rem) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes mobile-menu-in {
+  from { opacity: 0; transform: translateY(-0.4rem) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+  .site-header > div { height: 4rem; }
+
+  .home-page > section:not(.home-hero):not(.mobile-home-nav) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 30rem;
+  }
+
+  .home-hero .hero-grid {
+    opacity: 0.1;
+    background-size: 4rem 4rem;
+  }
+
+  .home-hero .hero-particles { display: none; }
+
+  .home-hero .mobile-safe-title {
+    max-width: 22rem;
+    font-size: clamp(2.05rem, 9.4vw, 2.6rem);
+    line-height: 1.02;
+  }
+
+  .mobile-home-nav {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .home-motion-ready .mobile-home-nav.is-visible .mobile-shortcut,
+  .mobile-shortcut {
+    animation: mobile-shortcut-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .mobile-shortcut:nth-child(2) { animation-delay: 55ms; }
+  .mobile-shortcut:nth-child(3) { animation-delay: 110ms; }
+  .mobile-shortcut:nth-child(4) { animation-delay: 165ms; }
+
+  .home-page :is(.home-technologies, .connected-results, .home-services, .home-projects, .home-customers, .home-why, .home-about) h2 {
+    font-size: clamp(1.55rem, 7.2vw, 1.85rem);
+    line-height: 1.12;
+  }
+
+  .home-page :is(.home-pricing, .home-region, .home-blog, .home-faq) h2 {
+    font-size: clamp(1.55rem, 7.2vw, 1.85rem);
+    line-height: 1.12;
+  }
+
+  .home-page :is(.home-technologies, .connected-results, .home-services, .home-projects, .home-customers, .home-why) :is(ul, ol, div)[class*="overflow-x-auto"] {
+    scroll-padding-inline: 1.25rem;
+    overscroll-behavior-inline: contain;
+    touch-action: pan-x;
+  }
+
+  .home-services li > a {
+    min-height: 11.25rem;
+  }
+
+  .home-services li > a p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .home-projects article,
+  .home-why article,
+  .result-step {
+    box-shadow: 0 0.75rem 2rem rgb(4 24 52 / 0.08);
+  }
+
+  .home-about > div { gap: 0; }
+
+  .home-about .rounded-2xl.border {
+    padding: 0.75rem;
+  }
+
+  .home-region > div { gap: 1.5rem; }
+  .home-region ul:first-of-type { margin-top: 1rem; }
+  .home-region ul:first-of-type li:nth-child(n + 5),
+  .home-region > div > ul { display: none; }
+  .home-region a { margin-top: 1.25rem; }
+
+  .home-faq details { padding: 1rem; }
+  .home-faq details:nth-child(n + 4) { display: none; }
+
+  .home-contact a { min-height: 3rem; }
+
+  .site-header details[open] > nav {
+    animation: mobile-menu-in 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    transform-origin: top right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-shortcut,
+  .site-header details[open] > nav { animation: none; }
+}
