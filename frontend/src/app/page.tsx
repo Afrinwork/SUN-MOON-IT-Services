@@ -5,6 +5,7 @@ import { ClientProjectsSection } from "@/components/sections/client-projects/Cli
 import { ContactCTASection } from "@/components/sections/contact-cta/ContactCTASection";
 import { CustomersSection } from "@/components/sections/customers/CustomersSection";
 import { FinderTeaserSection } from "@/components/sections/finder-teaser/FinderTeaserSection";
+import { HeroIntroSection } from "@/components/sections/hero/HeroIntroSection";
 import { HeroSection } from "@/components/sections/hero/HeroSection";
 import { HomeFaqSection } from "@/components/sections/home-faq/HomeFaqSection";
 import { HomePageMotion } from "@/components/sections/home/HomePageMotion";
@@ -27,6 +28,7 @@ export default function HomePage() {
   return (
     <HomePageMotion>
       <HeroSection />
+      <HeroIntroSection />
       <MobileHomeNav />
       <ServicesSection />
       <FinderTeaserSection />

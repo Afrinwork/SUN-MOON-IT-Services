@@ -23,7 +23,7 @@
 
   .home-hero .hero-particles { display: none; }
 
-  .home-hero .mobile-safe-title {
+  .mobile-safe-title {
     max-width: 22rem;
     font-size: clamp(2.05rem, 9.4vw, 2.6rem);
     line-height: 1.02;

@@ -10,5 +10,13 @@
 
 .hero-finder-flight__zone .flying-button__craft {
   font-weight: 900;
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+/* Begrüßung: helle Basis unter dem Video, damit die Buchstaben auch in dunklen Videostellen lesbar bleiben. */
+.hero-welcome-title .masked-heading__media {
+  background: linear-gradient(160deg, #fff 10%, var(--color-accent) 90%);
+}
+
+.hero-welcome-title .masked-heading__source {
+  opacity: 0.4;
 }

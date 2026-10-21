@@ -1,5 +1,7 @@
 /** Texte für den ersten Bildschirm der Startseite – das Erste, was Kunden sehen. */
 export const heroContent = {
+  welcomeBrand: "Sun&Moon IT Services",
+  welcomeTitle: "Herzlich willkommen in Ihrer IT-Welt",
   eyebrow: "IT-Service für Unternehmen · Seelze & Hannover",
   mobileEyebrow: "IT-Service · Seelze & Hannover",
   titleStart: "Websites, Apps und Software",
