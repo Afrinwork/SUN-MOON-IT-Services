@@ -121,3 +121,20 @@ footer {
 .home-hero .hero-media video {
   filter: grayscale(1);
 }
+
+/*
+ * Gefüllte Buttons, die beim Überfahren „weiß“ werden sollten: im Schwarz-Weiß-Schema wäre das dieselbe
+ * Farbe wie die Schrift. Stattdessen bleibt die Füllung und der Button bekommt einen hellen Ring.
+ */
+@media (hover: hover) {
+  [class*="bg-accent"][class*="hover:bg-white"]:hover {
+    background-color: var(--brand-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-accent) 30%, transparent), 0 10px 30px -8px rgb(0 0 0 / 0.5);
+  }
+}
+
+/* Goldene Metallkarten: Nebentext und Linien dunkler, damit sie auf Gold lesbar bleiben. */
+.metal-card {
+  --text-secondary: #3b3220;
+  --border: rgb(0 0 0 / 0.2);
+}
