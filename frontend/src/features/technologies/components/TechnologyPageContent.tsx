@@ -1,4 +1,5 @@
-import { ArrowRight, Bot, Braces, Check, ChevronDown, Cloud, Code2, Database, GitBranch, Layers3, Settings, ShieldCheck, Smartphone, Users } from "lucide-react";
+import { ArrowRight, Bot, Braces, ChevronDown, Cloud, Code2, Database, GitBranch, Layers3, Settings, ShieldCheck, Smartphone, Users } from "lucide-react";
+import { TechnologyChip } from "@/features/technologies/components/TechnologyChip";
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/ui/breadcrumb/Breadcrumb";
@@ -72,8 +73,8 @@ export function TechnologyPageContent() {
                       <h2 className="mt-5 text-2xl font-black tracking-[-0.03em] text-primary">{category.title}</h2>
                       <p className="mt-3 text-sm leading-6 text-muted">{category.description}</p>
                     </div>
-                    <ul className="grid content-start gap-x-6 sm:grid-cols-2">
-                      {category.items.map((item) => <li key={item} className="flex min-h-11 items-center gap-2.5 border-b border-border/75 py-2 text-sm font-semibold text-foreground"><Check size={14} className="shrink-0 text-accent-strong" />{item}</li>)}
+                    <ul className="grid content-start gap-2.5 sm:grid-cols-2">
+                      {category.items.map((item) => <TechnologyChip key={item} name={item} />)}
                     </ul>
                   </div>
                 </article>
@@ -100,7 +101,7 @@ export function TechnologyPageContent() {
                   <div className="border-t border-border bg-surface px-4 py-5">
                     <p className="text-sm leading-6 text-muted">{category.description}</p>
                     <ul className="mt-4 grid gap-2">
-                      {category.items.map((item) => <li key={item} className="flex items-start gap-2 text-sm font-semibold leading-5 text-foreground"><Check size={14} className="mt-0.5 shrink-0 text-accent-strong" />{item}</li>)}
+                      {category.items.map((item) => <TechnologyChip key={item} name={item} />)}
                     </ul>
                   </div>
                 </details>
