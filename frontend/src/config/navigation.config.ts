@@ -1,26 +1,29 @@
+import { BookOpen, Boxes, Building2, Compass, FolderKanban, LayoutGrid, Tag, type LucideIcon } from "lucide-react";
 import { blogTopics } from "@/content/blog/topics";
 import { services } from "@/features/services/data/services";
 
 export type NavLink = readonly [label: string, href: string];
 
 export type NavChild = { label: string; href: string; text?: string };
-export type NavItem = { label: string; href: string; children?: NavChild[] };
+export type NavItem = { label: string; href: string; icon?: LucideIcon; children?: NavChild[] };
 
 /** Hauptmenü: Lösungen | Lösung finden | Preise | Projekte | Eigene Software | Unternehmen | Ratgeber – plus „Projekt starten“-Button. */
 export const mainNavigation: NavItem[] = [
   {
     label: "Lösungen",
+    icon: LayoutGrid,
     href: "/leistungen",
     children: [
       ...services.map((s) => ({ label: s.title, href: `/leistungen/${s.slug}`, text: s.short })),
     ],
   },
-  { label: "Lösung finden", href: "/loesung-finden" },
-  { label: "Preise", href: "/preise" },
-  { label: "Projekte", href: "/projekte/kundenprojekte" },
-  { label: "Eigene Software", href: "/projekte/eigene-software" },
+  { label: "Lösung finden", href: "/loesung-finden", icon: Compass },
+  { label: "Preise", href: "/preise", icon: Tag },
+  { label: "Projekte", href: "/projekte/kundenprojekte", icon: FolderKanban },
+  { label: "Eigene Software", href: "/projekte/eigene-software", icon: Boxes },
   {
     label: "Unternehmen",
+    icon: Building2,
     href: "/ueber-uns",
     children: [
       { label: "Über uns", href: "/ueber-uns", text: "Wer wir sind und wofür wir stehen." },
@@ -33,6 +36,7 @@ export const mainNavigation: NavItem[] = [
   },
   {
     label: "Ratgeber",
+    icon: BookOpen,
     href: "/blog",
     children: blogTopics.map((t) => ({ label: t.title, href: `/blog/thema/${t.slug}`, text: t.intro })),
   },

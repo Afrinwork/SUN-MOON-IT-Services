@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { useRef, useState, type MouseEvent } from "react";
 import { DesktopNavItem } from "@/components/navigation/desktop/DesktopNavItem";
+import { GlassNavBar } from "@/components/navigation/desktop/GlassNavBar";
 import { ButtonLink } from "@/components/ui/button/ButtonLink";
 import { mainNavigation, projectCta } from "@/config/navigation.config";
 
@@ -24,7 +25,7 @@ export function DesktopNavigation() {
     <nav
       ref={navigationRef}
       aria-label="Hauptnavigation"
-      className={`hidden items-center gap-5 xl:flex 2xl:gap-8 ${forceClosed ? "desktop-nav-closed" : ""}`}
+      className={`hidden items-center gap-4 xl:flex ${forceClosed ? "desktop-nav-closed" : ""}`}
       onClick={handleNavigation}
       onMouseEnter={() => setForceClosed(false)}
       onMouseLeave={() => setForceClosed(false)}
@@ -33,9 +34,9 @@ export function DesktopNavigation() {
         if (event.key === "Escape") closeNavigation();
       }}
     >
-      <ul className="flex items-center gap-4 2xl:gap-6">
+      <GlassNavBar><ul className="flex items-center gap-0.5">
         {mainNavigation.map((item, index) => <DesktopNavItem key={item.href} item={item} align={index >= mainNavigation.length - 2 ? "right" : "center"} />)}
-      </ul>
+      </ul></GlassNavBar>
       <ButtonLink href={projectCta.href} className="group min-h-11 whitespace-nowrap px-4 py-2 shadow-lg shadow-accent/30 2xl:px-5">{projectCta.label} <ArrowRight size={16} className="transition group-hover:translate-x-0.5" /></ButtonLink>
     </nav>
   );

@@ -37,6 +37,7 @@ footer {
   .bg-white,
   .bg-surface,
   .bg-surface-accent,
+  .mono-light,
   .site-header {
     --brand-primary: #0a0a0a;
     --brand-primary-deep: #000000;
@@ -83,9 +84,38 @@ footer {
   --brand-primary-deep: #000000;
 }
 
-/* Header bleibt rein weiß über dem schwarzen Hintergrund. */
-.site-header {
-  background-color: #ffffff;
+/* Header: bis xl weiße Leiste, ab xl schwebt die Glas-Navigation auf dem schwarzen Hintergrund. */
+@media (max-width: 1279.98px) {
+  .site-header {
+    background-color: #ffffff;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-header {
+    --brand-primary: #ffffff;
+    --brand-primary-deep: #e9e9e9;
+    --brand-accent: #ffffff;
+    --brand-accent-strong: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --border: rgb(255 255 255 / 0.14);
+    --on-fill: #000000;
+    color: var(--text-primary);
+  }
+}
+
+/* Glas-Leiste: liegt als Fläche hinter den Menüpunkten, dunkles Glas für lesbare weiße Schrift. */
+.glass-nav .glass-nav__surface {
+  position: absolute;
+  inset: 0;
+  color-scheme: dark;
+}
+
+/* Standbild hinter dem Video: Graustufen über die Helligkeit des Bildes auf grauer Fläche. */
+.home-hero .hero-media {
+  background-color: #808080;
+  background-blend-mode: luminosity;
 }
 
 .home-hero .hero-media video {
