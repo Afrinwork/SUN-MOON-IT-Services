@@ -1,14 +1,26 @@
-import { Info } from "lucide-react";
+import { Info, Wallet } from "lucide-react";
 import type { Estimate } from "@/features/solution-finder/estimate";
 
 const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 const range = (from: number, to: number) => `${euro.format(from)} – ${euro.format(to)}`;
 
+const budgetMessages = {
+  passt: "Ihr Budget reicht für alles, was Sie ausgewählt haben.",
+  knapp: "Ihr Budget reicht für den unteren Bereich. Wir schauen gemeinsam, was zuerst kommt.",
+  darunter: "Ihr Budget liegt unter der Schätzung. Unser Vorschlag: mit dem Wichtigsten starten, den Rest später in Etappen.",
+};
+
 /** Ungefährer Gesamtpreis als Spanne, darunter jeder Posten einzeln. */
 export function PriceEstimate({ estimate }: { estimate: Estimate }) {
-  const { items, from, to, monthly, hourly, openWishes } = estimate;
+  const { items, from, to, monthly, hourly, openWishes, firstYear, budgetFit } = estimate;
   return (
     <div className="space-y-4">
+      {budgetFit && (
+        <p className={`flex items-start gap-2 rounded-xl p-3 text-sm font-semibold ${budgetFit === "passt" ? "bg-emerald-50 text-emerald-900" : "bg-amber-50 text-amber-900"}`}>
+          <Wallet size={16} className="mt-0.5 shrink-0" />
+          {budgetMessages[budgetFit]}
+        </p>
+      )}
       {items.length > 0 ? (
         <div className="rounded-2xl bg-surface p-4 md:p-5">
           <p className="text-sm font-semibold text-muted">Einmalig, ungefähr</p>
@@ -20,6 +32,7 @@ export function PriceEstimate({ estimate }: { estimate: Estimate }) {
               {hourly && <>IT-Hilfe nach Aufwand: ab {euro.format(hourly)} pro Stunde</>}
             </p>
           )}
+          {firstYear && <p className="mt-3 border-t border-border pt-3 text-sm text-muted">Im ersten Jahr mit Betreuung: <strong className="text-primary">{range(firstYear.from, firstYear.to)}</strong></p>}
         </div>
       ) : (
         hourly && <p className="rounded-2xl bg-surface p-4 text-xl font-black text-primary">ab {euro.format(hourly)} pro Stunde, nach Aufwand</p>

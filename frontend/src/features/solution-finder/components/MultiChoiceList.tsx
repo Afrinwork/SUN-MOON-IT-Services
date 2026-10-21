@@ -5,10 +5,17 @@ import { useState } from "react";
 import { NONE } from "@/features/solution-finder/conversation";
 
 type Choice = { id: string; label: string; icon?: LucideIcon };
-type Props = { choices: Choice[]; onDone: (value: string) => void };
+type Labels = { empty: string; done: (count: number) => string; none: string };
+type Props = { choices: Choice[]; onDone: (value: string) => void; labels?: Labels };
+
+const areaLabels: Labels = {
+  empty: "Bereiche antippen",
+  done: (n) => `Weiter mit ${n} ${n === 1 ? "Bereich" : "Bereichen"}`,
+  none: "Nein, das reicht",
+};
 
 /** Mehrere Bereiche antippen. Mobil: 2-spaltige Kacheln. Desktop: Liste mit Haken. */
-export function MultiChoiceList({ choices, onDone }: Props) {
+export function MultiChoiceList({ choices, onDone, labels = areaLabels }: Props) {
   const [picked, setPicked] = useState<string[]>([]);
   const toggle = (id: string) => setPicked((prev) => (prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]));
 
@@ -30,9 +37,9 @@ export function MultiChoiceList({ choices, onDone }: Props) {
       </ul>
       <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
         <button type="button" disabled={picked.length === 0} onClick={() => onDone(picked.join(","))} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-bold text-white transition hover:bg-primary-deep disabled:cursor-not-allowed disabled:opacity-40">
-          {picked.length === 0 ? "Bereiche antippen" : `Weiter mit ${picked.length} ${picked.length === 1 ? "Bereich" : "Bereichen"}`} <ArrowRight size={16} />
+          {picked.length === 0 ? labels.empty : labels.done(picked.length)} <ArrowRight size={16} />
         </button>
-        <button type="button" onClick={() => onDone(NONE)} className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-muted hover:text-primary">Nein, das reicht</button>
+        <button type="button" onClick={() => onDone(NONE)} className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-muted hover:text-primary">{labels.none}</button>
       </div>
     </div>
   );

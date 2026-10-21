@@ -1,3 +1,4 @@
+import { assetSolutionIds, assetsQuestion, finderAssets } from "@/content/solution-finder/assets";
 import { budgetQuestion, budgets, careOptions, careQuestion } from "@/content/solution-finder/budget-care";
 import { solutions } from "@/content/solution-finder/solutions";
 import { teamQuestion, teamSizes } from "@/content/solution-finder/team-sizes";
@@ -21,13 +22,16 @@ const skipReplies = ["Kein Problem, das klären wir später.", "Gern, dann über
 export const greeting = "Hallo! Ich bin der Sun & Moon Assistent und helfe Ihnen, die passende Lösung zu finden.";
 export const firstQuestion = "Womit fangen wir an?";
 
-export function stepsFor(solution: Solution): Step[] {
+export function stepsFor(solution: Solution, answers: Answers): Step[] {
   const [first, second] = solution.followUps;
+  const areaIds = [solution.id, ...extrasFrom(answers.extras).map((s) => s.id)];
+  const askAssets = areaIds.some((id) => assetSolutionIds.includes(id));
   return [
     { id: first.id, question: first.question, choices: first.answers, kind: "single" },
     { id: second.id, question: second.question, choices: second.answers, kind: "single" },
     { id: "extras", question: "Soll noch etwas dazukommen? Sie können mehrere Bereiche antippen.", choices: solutions.filter((s) => s.id !== solution.id), kind: "multi" },
     { id: "wishes", question: "Haben Sie besondere Wünsche? Schreiben Sie einfach, was Ihnen wichtig ist.", choices: [], kind: "text" },
+    ...(askAssets ? [{ id: "assets", question: assetsQuestion, choices: finderAssets, kind: "multi" } satisfies Step] : []),
     { id: "team", question: teamQuestion, choices: teamSizes, kind: "single" },
     { id: "budget", question: budgetQuestion, choices: budgets, kind: "single" },
     { id: "care", question: careQuestion, choices: careOptions, kind: "single" },
@@ -47,16 +51,28 @@ export type Selection = {
   budget?: Budget;
   care?: CareOption;
   timing?: Timing;
-  /** Alle beantworteten Fragen als Stichworte – z. B. für die WhatsApp-Nachricht. */
+  /** Ids aus content/solution-finder/assets.ts, die schon vorhanden sind; null = nicht gefragt oder übersprungen. */
+  have: string[] | null;
+  /** Alle beantworteten Fragen als Stichworte – für die Chips in der Übersicht. */
   summary: string[];
+  /** Jede Frage mit Antwort im Wortlaut (ohne Freitext, der steht in `wishes`) – für die WhatsApp-Nachricht. */
+  answered: { question: string; answer: string }[];
 };
 
+const listFrom = (value: string | undefined) => (value && value !== SKIP ? value.split(",").filter((id) => id !== NONE) : []);
 const extrasFrom = (value: string | undefined) => (value && value !== NONE && value !== SKIP ? value.split(",") : [])
   .map((id) => solutions.find((s) => s.id === id)).filter((s) => s !== undefined);
 
 /** Was der Besucher „sagt“ und was der Assistent darauf antwortet. */
 function exchange(step: Step, value: string, index: number): { user: string; reply: string; tags: string[] } {
   const ack = acknowledgements[index % acknowledgements.length];
+  if (step.id === "assets") {
+    const have = listFrom(value);
+    const missing = finderAssets.filter((a) => !have.includes(a.id)).map((a) => a.label.replace(/^(Ein|Eigene) /, ""));
+    const user = have.length ? finderAssets.filter((a) => have.includes(a.id)).map((a) => a.label).join(", ") : "Noch nichts davon";
+    const reply = missing.length ? `${ack} Für ${missing.join(", ")} planen wir etwas Aufwand mit ein.` : `${ack} Dann kann es zügig losgehen.`;
+    return { user, reply, tags: [] };
+  }
   if (step.kind === "multi") {
     const extras = extrasFrom(value);
     if (extras.length === 0) return { user: "Nein, das reicht", reply: `${ack} Dann bleiben wir bei einem Thema.`, tags: [] };
@@ -78,12 +94,13 @@ function exchange(step: Step, value: string, index: number): { user: string; rep
 export function buildConversation(needId: string | null, answers: Answers) {
   const solution = solutions.find((s) => s.id === needId) ?? null;
   const messages: Message[] = [{ from: "bot", text: greeting, question: firstQuestion }];
-  if (!solution) return { messages, pendingStep: null, selection: null, progress: { done: 0, total: 9 } };
+  if (!solution) return { messages, pendingStep: null, selection: null, progress: { done: 0, total: 10 } };
 
   messages.push({ from: "user", text: solution.label });
-  const steps = stepsFor(solution);
+  const steps = stepsFor(solution, answers);
   const total = steps.length + 1;
   const summary: string[] = [];
+  const answered: Selection["answered"] = [];
   let reply = solution.reply;
   for (const [index, step] of steps.entries()) {
     messages.push({ from: "bot", text: reply, question: step.question });
@@ -97,6 +114,7 @@ export function buildConversation(needId: string | null, answers: Answers) {
     const turn = exchange(step, value, index);
     messages.push({ from: "user", text: turn.user });
     summary.push(...turn.tags);
+    if (step.kind !== "text") answered.push({ question: step.question, answer: turn.user });
     reply = turn.reply;
   }
   messages.push({ from: "bot", text: reply, question: "Hier ist Ihre persönliche Übersicht:" });
@@ -113,7 +131,9 @@ export function buildConversation(needId: string | null, answers: Answers) {
     budget: pick(budgets, "budget"),
     care: pick(careOptions, "care"),
     timing: pick(timings, "timing"),
+    have: answers.assets && answers.assets !== SKIP ? listFrom(answers.assets) : null,
     summary,
+    answered,
   };
   return { messages, pendingStep: null, selection, progress: { done: total, total } };
 }
@@ -121,9 +141,9 @@ export function buildConversation(needId: string | null, answers: Answers) {
 /** Entfernt die zuletzt gegebene Antwort (für „Zurück“). */
 export function undoLast(solution: Solution | null, answers: Answers): { answers: Answers; clearNeed: boolean } {
   if (!solution) return { answers, clearNeed: false };
-  const answered = stepsFor(solution).filter((s) => answers[s.id]);
-  if (answered.length === 0) return { answers: {}, clearNeed: true };
+  const done = stepsFor(solution, answers).filter((s) => answers[s.id]);
+  if (done.length === 0) return { answers: {}, clearNeed: true };
   const next = { ...answers };
-  delete next[answered[answered.length - 1].id];
+  delete next[done[done.length - 1].id];
   return { answers: next, clearNeed: false };
 }

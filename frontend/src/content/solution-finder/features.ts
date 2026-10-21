@@ -24,4 +24,12 @@ export const finderFeatures: FinderFeature[] = [
   { id: "logo", label: "Logo / Design", keywords: ["logo", "corporate", "farben", "branding"], from: 100, to: 350 },
   { id: "texte", label: "Texte schreiben", keywords: ["text", "inhalte schreiben", "formulier"], from: 100, to: 300 },
   { id: "umzug", label: "Daten übernehmen", keywords: ["umzug", "übernehm", "import", "migration", "alte daten"], from: 100, to: 400 },
+  { id: "fotos", label: "Bilder aussuchen und bearbeiten", keywords: ["foto", "bilder", "stockfoto"], from: 50, to: 200 },
+  { id: "galerie", label: "Galerie / Referenzen", keywords: ["galerie", "referenz", "portfolio", "vorher nachher"], from: 80, to: 250 },
+  { id: "bewertungen", label: "Kundenbewertungen einbinden", keywords: ["bewertung", "rezension", "google bewertung", "sterne"], from: 80, to: 200 },
+  { id: "barrierefrei", label: "Barrierefreiheit", keywords: ["barrierefrei", "barriere", "bfsg", "screenreader"], from: 200, to: 600 },
+  { id: "offline", label: "Funktioniert auch offline", keywords: ["offline", "ohne internet", "funkloch"], from: 200, to: 600 },
+  { id: "kamera", label: "Kamera / Barcode scannen", keywords: ["kamera", "scan", "barcode", "qr"], from: 150, to: 450 },
+  { id: "rollen", label: "Rollen und Rechte", keywords: ["rollen", "rechte", "berechtig", "admin", "mitarbeiterzugang"], from: 150, to: 450 },
+  { id: "backup", label: "Datensicherung", keywords: ["backup", "sicherung", "datensicher"], from: 100, to: 300 },
 ];

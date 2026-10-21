@@ -1,3 +1,4 @@
+import { finderAssets } from "@/content/solution-finder/assets";
 import { finderFeatures, type FinderFeature } from "@/content/solution-finder/features";
 import { findPackage } from "@/features/pricing/formatPrice";
 import type { Selection } from "@/features/solution-finder/conversation";
@@ -14,16 +15,24 @@ export type Estimate = {
   hourly: number | null;
   /** Freitext enthielt mehr, als wir erkannt haben – wird im Gespräch geschätzt. */
   openWishes: boolean;
+  /** Einmalig plus 12 Monate Betreuung; null ohne Betreuung. */
+  firstYear: { from: number; to: number } | null;
+  /** Abgleich mit dem angegebenen Budget; null ohne feste Obergrenze. */
+  budgetFit: "passt" | "knapp" | "darunter" | null;
 };
 
 const roundTo50 = (value: number) => Math.round(value / 50) * 50;
 const normalize = (text: string) => text.toLowerCase().replace(/[^a-z0-9äöüß ]/g, " ");
 
-/** Lokale Stichwortsuche im Freitext, nur am Wortanfang („ki“ findet nicht „Kita“). Nichts wird gesendet. */
+/**
+ * Lokale Stichwortsuche im Freitext. Längere Stichwörter zählen am Wortanfang („termin“ → „Terminbuchung“),
+ * kurze (bis 3 Zeichen) nur als ganzes Wort („ki“ findet nicht „Kita“). Nichts wird gesendet.
+ */
 export function detectFeatures(text: string): FinderFeature[] {
-  const normalized = ` ${normalize(text).replace(/\s+/g, " ")}`;
-  if (normalized.trim().length < 3) return [];
-  return finderFeatures.filter((feature) => feature.keywords.some((keyword) => normalized.includes(` ${keyword}`)));
+  const normalized = ` ${normalize(text).replace(/\s+/g, " ").trim()} `;
+  if (normalized.trim().length < 2) return [];
+  const matches = (keyword: string) => normalized.includes(keyword.length <= 3 ? ` ${keyword} ` : ` ${keyword}`);
+  return finderFeatures.filter((feature) => feature.keywords.some(matches));
 }
 
 /** Ungefährer Gesamtpreis aus Hauptthema, weiteren Bereichen und erkannten Wünschen. */
@@ -42,16 +51,29 @@ export function buildEstimate(selection: Selection): Estimate {
   const features = detectFeatures(selection.wishes);
   features.forEach((feature) => items.push({ label: feature.label, note: "aus Ihren Wünschen", from: feature.from, to: feature.to }));
 
+  // Was noch fehlt (Logo, Texte, Fotos), kommt dazu – außer es steht schon in den Wünschen.
+  const missing = selection.have === null ? [] : finderAssets.filter((asset) => !selection.have?.includes(asset.id));
+  for (const asset of missing) {
+    const feature = finderFeatures.find((f) => f.id === asset.featureId);
+    if (feature && !features.includes(feature)) items.push({ label: feature.label, note: "noch nicht vorhanden", from: feature.from, to: feature.to });
+  }
+
   const care = findPackage("betreuung");
   const monthly = selection.care?.withCare && care?.priceFrom ? care.priceFrom : null;
   const wordCount = selection.wishes.trim().split(/\s+/).filter(Boolean).length;
 
+  const from = items.reduce((sum, item) => sum + item.from, 0);
+  const to = items.reduce((sum, item) => sum + item.to, 0);
+  const maxEuro = selection.budget?.maxEuro ?? null;
+
   return {
     items,
-    from: items.reduce((sum, item) => sum + item.from, 0),
-    to: items.reduce((sum, item) => sum + item.to, 0),
+    from,
+    to,
     monthly,
     hourly,
     openWishes: wordCount > features.length * 6 + 4,
+    firstYear: monthly && items.length ? { from: from + monthly * 12, to: to + monthly * 12 } : null,
+    budgetFit: maxEuro === null || items.length === 0 ? null : to <= maxEuro ? "passt" : from <= maxEuro ? "knapp" : "darunter",
   };
 }

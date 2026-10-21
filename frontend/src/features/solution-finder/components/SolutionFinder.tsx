@@ -18,6 +18,7 @@ import { buildConversation, SKIP, undoLast, type Answers, type Step } from "@/fe
 import { findAnswer } from "@/features/solution-finder/search";
 
 type Thinking = "flow" | "qa" | null;
+const assetLabels = { empty: "Vorhandenes antippen", done: () => "Weiter", none: "Noch nichts davon" };
 const fallback = `Dazu habe ich keine feste Antwort hinterlegt – das klären wir am besten persönlich. Schreiben Sie uns per WhatsApp oder rufen Sie an: ${siteConfig.phone}.`;
 
 /** Geführter Lösungs-Assistent: fest hinterlegte Antworten, keine externe KI, keine Datenübertragung. */
@@ -100,9 +101,9 @@ export function SolutionFinder() {
           {thinking === "flow" && <TypingIndicator label="prüft Ihre Auswahl …" />}
           {!thinking && !needId && <ChoiceList choices={solutions} onSelect={chooseNeed} />}
           {!thinking && pendingStep?.kind === "single" && <ChoiceList choices={pendingStep.choices} onSelect={(id) => answer(pendingStep, id)} onSkip={() => answer(pendingStep, SKIP)} />}
-          {!thinking && pendingStep?.kind === "multi" && <MultiChoiceList key={needId} choices={pendingStep.choices} onDone={(value) => answer(pendingStep, value)} />}
+          {!thinking && pendingStep?.kind === "multi" && <MultiChoiceList key={pendingStep.id} choices={pendingStep.choices} labels={pendingStep.id === "assets" ? assetLabels : undefined} onDone={(value) => answer(pendingStep, value)} />}
           {!thinking && pendingStep?.kind === "text" && <WishesInput onDone={(text) => answer(pendingStep, text)} onSkip={() => answer(pendingStep, SKIP)} />}
-          {selection && thinking !== "flow" && <SolutionResult selection={selection} />}
+          {selection && thinking !== "flow" && <SolutionResult selection={selection} chatQuestions={asked.map((a) => a.question)} />}
 
           {asked.map((item, index) => (
             <div key={`${item.question}-${index}`} ref={index === asked.length - 1 ? latestQuestionRef : undefined} className="space-y-4 scroll-mt-40">
