@@ -41,7 +41,7 @@ export function HeroSection() {
             {heroContent.titleStart} <span className="hero-accent-text inline-block text-accent">{heroContent.titleAccent}</span>
           </h1>
           <p className="reveal delay-2 mt-6 max-w-2xl text-lg leading-8 text-white/75 lg:text-xl">{heroContent.text}</p>
-          <div className="reveal delay-3 mt-8"><HeroContactButtons /></div>
+          <div className="reveal delay-3 mt-8"><HeroContactButtons flying /></div>
           <Link href="#leistungen" className="reveal delay-3 mt-5 inline-flex items-center gap-2 text-sm font-bold text-white/80 hover:text-white">
             {heroContent.servicesLink} <ArrowRight size={16} />
           </Link>

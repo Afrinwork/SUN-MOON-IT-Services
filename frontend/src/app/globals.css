@@ -2,6 +2,7 @@
 @import "../styles/tokens/colors.css";
 @import "../styles/tokens/radius.css";
 @import "../styles/animations/reveal.css";
+@import "../styles/animations/hero-flying-cta.css";
 @import "../styles/animations/reduced-motion.css";
 @import "../styles/animations/web-development.css";
 @import "../styles/animations/software-development.css";
