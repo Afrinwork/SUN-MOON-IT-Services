@@ -1,5 +1,5 @@
-/* Flugzone des „Lösung finden“-Buttons: ragt über den Hero-Text nach oben, Rauch blendet an den Rändern aus. */
-.hero-finder-flight__zone.flying-button {
+/* Flugzone des „Lösung finden“-Buttons: ragt über den Text nach oben, Rauch blendet an den Rändern aus. */
+.intro-finder-flight__zone.flying-button {
   position: absolute;
   inset: auto 0 0 0;
   z-index: 20;
@@ -8,15 +8,6 @@
   mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
 }
 
-.hero-finder-flight__zone .flying-button__craft {
+.intro-finder-flight__zone .flying-button__craft {
   font-weight: 900;
-}
-
-/* Begrüßung: helle Basis unter dem Video, damit die Buchstaben auch in dunklen Videostellen lesbar bleiben. */
-.hero-welcome-title .masked-heading__media {
-  background: linear-gradient(160deg, #fff 10%, var(--color-accent) 90%);
-}
-
-.hero-welcome-title .masked-heading__source {
-  opacity: 0.4;
 }

@@ -1,0 +1,8 @@
+/* Begrüßung: helle Basis unter dem Video, damit die Buchstaben auch in dunklen Videostellen lesbar bleiben. */
+.hero-welcome-title .masked-heading__media {
+  background: linear-gradient(160deg, #fff 10%, var(--color-accent) 90%);
+}
+
+.hero-welcome-title .masked-heading__source {
+  opacity: 0.4;
+}

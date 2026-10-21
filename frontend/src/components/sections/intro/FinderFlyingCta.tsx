@@ -3,17 +3,17 @@
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import FlyingButton from "@/components/ui/flying-button/FlyingButton";
-import { heroContent } from "@/content/home/hero";
+import { introContent } from "@/content/home/intro";
 
-/** Desktop-Hero: „Lösung finden“ hebt beim Überfahren ab, Klick öffnet den Assistenten. */
-export function HeroFinderFlyingCta() {
+/** Desktop: „Lösung finden“ hebt beim Überfahren ab, Klick öffnet den Assistenten. */
+export function FinderFlyingCta() {
   const router = useRouter();
 
   return (
-    <div className="hero-finder-flight relative h-[3.6rem] w-[13.5rem] shrink-0">
+    <div className="intro-finder-flight relative h-[3.6rem] w-[13.5rem] shrink-0">
       <FlyingButton
-        className="hero-finder-flight__zone"
-        theme="dark"
+        className="intro-finder-flight__zone"
+        theme="light"
         size="large"
         altitude={170}
         hoverTime={2.4}
@@ -26,11 +26,11 @@ export function HeroFinderFlyingCta() {
         wobble={1}
         buttonColor="#00a3ff"
         textColor="#071d40"
-        thrustColor="#8ec5ff"
-        smokeColor="#eef1f6"
+        thrustColor="#00a3ff"
+        smokeColor="#c9d3df"
         onClick={() => router.push("/loesung-finden")}
       >
-        <span className="inline-flex items-center gap-2">{heroContent.finderCta} <ArrowRight size={17} /></span>
+        <span className="inline-flex items-center gap-2">{introContent.finderCta} <ArrowRight size={17} /></span>
       </FlyingButton>
     </div>
   );
