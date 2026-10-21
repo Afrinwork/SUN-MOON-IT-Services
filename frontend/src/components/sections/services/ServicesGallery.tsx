@@ -37,7 +37,7 @@ export function ServicesGallery({ services }: { services: GalleryService[] }) {
   }, [services]);
 
   return (
-    <div className="relative -mt-6 h-[34rem]">
+    <div className="relative h-[26rem] md:-mt-6 md:h-[34rem]">
       <div ref={iconsRef} className="hidden" aria-hidden="true">
         {services.map(({ slug }) => { const Icon = icons[slug] ?? CodeXml; return <Icon key={slug} />; })}
       </div>

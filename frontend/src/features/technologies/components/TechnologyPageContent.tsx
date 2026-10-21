@@ -88,11 +88,11 @@ export function TechnologyPageContent() {
           <h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-primary">Unser technisches Spektrum.</h2>
           <p className="mt-3 text-sm leading-6 text-muted">Öffnen Sie einen Bereich für alle zugehörigen Technologien und Methoden.</p>
 
-          <div className="mt-7 overflow-hidden rounded-2xl border border-border">
+          <div className="mt-7 grid gap-3">
             {technologyCategories.map((category, index) => {
               const Icon = categoryIcons[category.id];
               return (
-                <details key={category.id} className="group border-b border-border bg-white last:border-b-0">
+                <details key={category.id} className="group overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-30px_rgba(0,0,0,0.8)]">
                   <summary className="grid min-h-20 cursor-pointer list-none grid-cols-[2.5rem_1fr_auto] items-center gap-3 px-4 py-3">
                     <span className="grid size-10 place-items-center rounded-xl bg-surface-accent text-accent-strong"><Icon size={18} /></span>
                     <span><span className="block text-[0.6rem] font-black tracking-widest text-accent-strong">{String(index + 1).padStart(2, "0")}</span><strong className="mt-1 block text-sm leading-5 text-primary">{category.shortTitle}</strong></span>

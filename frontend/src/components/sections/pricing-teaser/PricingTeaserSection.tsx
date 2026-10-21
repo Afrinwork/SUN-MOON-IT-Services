@@ -16,8 +16,8 @@ export function PricingTeaserSection() {
           <SectionHeader eyebrow="Preise" title="Was kostet das?" text="Das ist meist die erste Frage, deshalb steht die Antwort gleich hier. Es sind Einstiegspreise. Den festen Preis bekommen Sie nach dem ersten Gespräch schriftlich." />
           <Link href="/preise" className={`${allPricesLink} mb-14 hidden shrink-0 self-start md:inline-flex`}>Alle Preise ansehen <ArrowRight size={17} /></Link>
         </div>
-        <ul className="grid gap-2 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
-          {pricePackages.map((pkg) => <li key={pkg.id}><PricingTeaserItem pkg={pkg} /></li>)}
+        <ul className="-mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
+          {pricePackages.map((pkg) => <li key={pkg.id} className="w-[78%] shrink-0 snap-start md:w-auto"><PricingTeaserItem pkg={pkg} /></li>)}
         </ul>
         <p className="mt-5 text-xs leading-5 text-muted md:mt-6 md:text-sm">{priceNote}</p>
         <Link href="/preise" className={`${allPricesLink} mt-6 w-full md:hidden`}>Alle Preise ansehen <ArrowRight size={17} /></Link>

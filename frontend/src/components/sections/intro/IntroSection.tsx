@@ -36,7 +36,7 @@ export function IntroSection() {
               {introContent.titleStart} <span className="text-accent-strong">{introContent.titleAccent}</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-8 text-muted">{introContent.text}</p>
-            <div className="mt-9"><IntroContactButtons flying /></div>
+            <div className="mt-9"><IntroContactButtons /></div>
             <Link href="#leistungen" className="group mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary">
               {introContent.servicesLink} <ArrowRight size={16} className="transition group-hover:translate-x-1" />
             </Link>
@@ -55,7 +55,7 @@ export function IntroSection() {
             {introContent.titleStart} <span className="text-accent-strong">{introContent.titleAccent}</span>
           </h2>
           <p className="mt-4 text-[0.95rem] leading-6 text-muted">{introContent.mobileText}</p>
-          <div className="mt-6"><IntroContactButtons /></div>
+          <div className="mt-6"><IntroContactButtons withCall /></div>
           <div className="mt-6"><IntroProofPoints /></div>
         </div>
       </Container>

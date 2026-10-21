@@ -38,8 +38,7 @@ footer {
   .bg-surface,
   .bg-surface-accent,
   .mono-light,
-  .mobile-contact-bar,
-  .site-header {
+  .mobile-contact-bar {
     --brand-primary: #0a0a0a;
     --brand-primary-deep: #000000;
     --brand-accent: #0a0a0a;
@@ -83,27 +82,6 @@ footer {
 /* Hero: Verläufe über dem Video bleiben schwarz, das Video selbst in Graustufen. */
 #inhalt section.home-hero {
   --brand-primary-deep: #000000;
-}
-
-/* Header: bis xl weiße Leiste, ab xl schwebt die Glas-Navigation auf dem schwarzen Hintergrund. */
-@media (max-width: 1279.98px) {
-  .site-header {
-    background-color: #ffffff;
-  }
-}
-
-@media (min-width: 1280px) {
-  .site-header {
-    --brand-primary: #ffffff;
-    --brand-primary-deep: #e9e9e9;
-    --brand-accent: #ffffff;
-    --brand-accent-strong: #ffffff;
-    --text-primary: #ffffff;
-    --text-secondary: #a3a3a3;
-    --border: rgb(255 255 255 / 0.14);
-    --on-fill: #000000;
-    color: var(--text-primary);
-  }
 }
 
 /* Glas-Leiste: liegt als Fläche hinter den Menüpunkten, dunkles Glas für lesbare weiße Schrift. */

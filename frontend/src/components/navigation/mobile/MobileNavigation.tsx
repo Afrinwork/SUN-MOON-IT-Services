@@ -87,7 +87,7 @@ export function MobileNavigation() {
       </button>
 
       {mounted && createPortal(<div className={`mobile-menu-layer fixed inset-x-0 bottom-0 top-16 z-[45] md:top-18 xl:hidden ${open ? "is-open" : ""}`} aria-hidden={!open} inert={!open}>
-        <button type="button" tabIndex={-1} aria-label="Menü schließen" onClick={() => closeMenu()} className="mobile-menu-backdrop absolute inset-0 bg-primary-deep/30" />
+        <button type="button" tabIndex={-1} aria-label="Menü schließen" onClick={() => closeMenu()} className="mobile-menu-backdrop absolute inset-0 bg-black/60" />
         <div
           ref={panelRef}
           id="mobile-navigation-panel"

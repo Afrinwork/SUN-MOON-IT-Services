@@ -1,26 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/** Freigestelltes Logo. Ab xl liegt der Header auf dem schwarzen Hintergrund, dort die helle Variante. */
+/** Helle Logo-Variante, der Header liegt auf allen Größen auf dem schwarzen Hintergrund. */
 export function HeaderLogo() {
   return (
     <Link href="/" aria-label="Zur Startseite" className="block shrink-0 xl:-ml-6">
-      <Image
-        src="/brand/logos/logo-transparent.png"
-        alt="Sun & Moon IT Software Services"
-        width={1538}
-        height={370}
-        priority
-        sizes="(max-width: 369px) 150px, 180px"
-        className="h-9 w-auto min-[370px]:h-10 xl:hidden"
-      />
       <Image
         src="/brand/logos/logo-on-dark.png"
         alt="Sun & Moon IT Software Services"
         width={1538}
         height={370}
-        sizes="180px"
-        className="hidden h-10 w-auto xl:block"
+        priority
+        sizes="(max-width: 369px) 130px, 180px"
+        className="h-8 w-auto min-[370px]:h-9 xl:h-10"
       />
     </Link>
   );
