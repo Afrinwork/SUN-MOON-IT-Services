@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../styles/tokens/colors.css";
+@import "../styles/tokens/monochrome.css";
 @import "../styles/tokens/radius.css";
 @import "../styles/animations/reveal.css";
 @import "../styles/animations/hero-welcome.css";
@@ -29,7 +30,6 @@ main { min-width: 0; }
 img, video { max-width: 100%; height: auto; }
 a { text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
-::selection { background: color-mix(in srgb, var(--brand-accent) 24%, white); }
 
 .desktop-nav-closed .desktop-dropdown {
   visibility: hidden !important;

@@ -13,7 +13,7 @@ export function FinderFlyingCta() {
     <div className="intro-finder-flight relative h-[3.6rem] w-[13.5rem] shrink-0">
       <FlyingButton
         className="intro-finder-flight__zone"
-        theme="light"
+        theme="dark"
         size="large"
         altitude={170}
         hoverTime={2.4}
@@ -24,10 +24,10 @@ export function FinderFlyingCta() {
         smoke={1}
         turbulence={1}
         wobble={1}
-        buttonColor="#00a3ff"
-        textColor="#071d40"
-        thrustColor="#00a3ff"
-        smokeColor="#c9d3df"
+        buttonColor="#ffffff"
+        textColor="#000000"
+        thrustColor="#ffffff"
+        smokeColor="#eef1f6"
         onClick={() => router.push("/loesung-finden")}
       >
         <span className="inline-flex items-center gap-2">{introContent.finderCta} <ArrowRight size={17} /></span>

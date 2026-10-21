@@ -1,0 +1,93 @@
+/*
+ * Schwarz-Weiß-Schema.
+ * Dunkel (Standard): schwarze Seite mit RippleGrid, weiße Schrift, weiße Buttons.
+ * Hell: Karten, Header und Popups (bg-white / bg-surface) – schwarze Schrift, schwarze Buttons.
+ * Die Komponenten nutzen weiter die Farb-Tokens; hier wird nur festgelegt, was sie je Fläche bedeuten.
+ */
+
+:root,
+#inhalt section:not([class*="rounded"]),
+#inhalt main,
+#inhalt header.network-grid,
+footer {
+  --background: #000000;
+  --brand-primary: #ffffff;
+  --brand-primary-deep: #e9e9e9;
+  --brand-accent: #ffffff;
+  --brand-accent-strong: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --border: rgb(255 255 255 / 0.14);
+  --surface: #f5f5f5;
+  --surface-accent: #f1f1f1;
+  --on-fill: #000000;
+  --color-white: #ffffff;
+}
+
+/* Abschnitte lassen den Hintergrund durchscheinen. */
+#inhalt section:not([class*="rounded"]),
+#inhalt main,
+#inhalt header.network-grid,
+footer {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+@layer base {
+  .bg-white,
+  .bg-surface,
+  .bg-surface-accent,
+  .site-header {
+    --brand-primary: #0a0a0a;
+    --brand-primary-deep: #000000;
+    --brand-accent: #0a0a0a;
+    --brand-accent-strong: #0a0a0a;
+    --text-primary: #0a0a0a;
+    --text-secondary: #5c5c5c;
+    --border: #e4e4e4;
+    --on-fill: #ffffff;
+    color: var(--text-primary);
+  }
+
+  /* Gefüllte Buttons/Flächen: Schrift immer im Gegenton zur Füllung. */
+  [class*="bg-primary"] {
+    --brand-accent: var(--on-fill);
+    --brand-accent-strong: var(--on-fill);
+    --color-white: var(--on-fill);
+  }
+
+  [class*="bg-accent"] {
+    --color-white: var(--on-fill);
+    --brand-primary-deep: var(--on-fill);
+  }
+
+  /* Icon-Kachel mit Hover-Füllung: im Hover-Zustand Gegenfarbe der Kachel. */
+  [class*="bg-primary"][class*="bg-accent"] {
+    --brand-primary-deep: var(--brand-primary);
+  }
+}
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+::selection {
+  background: rgb(128 128 128 / 0.35);
+}
+
+/* Hero: Verläufe über dem Video bleiben schwarz, das Video selbst in Graustufen. */
+#inhalt section.home-hero {
+  --brand-primary-deep: #000000;
+}
+
+/* Header bleibt rein weiß über dem schwarzen Hintergrund. */
+.site-header {
+  background-color: #ffffff;
+}
+
+.home-hero .hero-media video {
+  filter: grayscale(1);
+}

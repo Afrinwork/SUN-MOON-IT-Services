@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/footer/Footer";
 import { SiteHeader } from "@/components/layout/header/SiteHeader";
+import { SiteBackground } from "@/components/layout/SiteBackground";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site.config";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   formatDetection: { telephone: true, email: false, address: false },
 };
 
-export const viewport: Viewport = { themeColor: "#071d40" };
+export const viewport: Viewport = { themeColor: "#000000" };
 
 /** Wird beim Build geladen und von der eigenen Domain ausgeliefert – keine Verbindung zu Google. */
 const sans = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext"], display: "swap", variable: "--font-sans" });
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="de" className={sans.variable}>
       <body>
         <JsonLd data={organizationSchema()} />
+        <SiteBackground />
         <SkipLink />
         <SiteHeader />
         <div id="inhalt" tabIndex={-1} className="outline-none">{children}</div>

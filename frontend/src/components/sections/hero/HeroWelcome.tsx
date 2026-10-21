@@ -35,6 +35,7 @@ export function HeroWelcome() {
         align="center"
         brightness={1.1}
         saturation={1.3}
+        grayscale
         weight={900}
         tracking={-0.04}
         lineHeight={1.02}

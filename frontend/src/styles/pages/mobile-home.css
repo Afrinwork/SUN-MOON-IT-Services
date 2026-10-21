@@ -72,7 +72,7 @@
   .home-projects article,
   .home-why article,
   .result-step {
-    box-shadow: 0 0.75rem 2rem rgb(4 24 52 / 0.08);
+    box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.08);
   }
 
   .home-about > div { gap: 0; }
