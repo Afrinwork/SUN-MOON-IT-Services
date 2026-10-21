@@ -3,22 +3,22 @@
 import type { ReactNode } from "react";
 import ReflectiveCard from "@/components/ui/reflective-card/ReflectiveCard";
 
-/** Dunkleres Gelb/Gold für die Metallfläche. */
-const GOLD = "#c9a227";
+/** Helles Bananengelb für die Metallfläche. */
+const BANANA = "#ffe135";
 
 type Props = { children: ReactNode; className?: string };
 
 /**
  * Metallische Karte (React Bits ReflectiveCard) mit den Einstellungen der Seite:
- * goldene Fläche mit dunkler Schrift, spiegelt das Hero-Video in Graustufen.
+ * bananengelbe Fläche mit dunkler Schrift, spiegelt das Hero-Video in Graustufen.
  */
 export function MetalCard({ children, className = "" }: Props) {
   return (
     <ReflectiveCard
       theme="light"
       videoSrc="/videos/hero-background.mp4"
-      tint={GOLD}
-      metalness={1}
+      tint={BANANA}
+      metalness={0.35}
       roughness={0.3}
       blurStrength={14}
       shine={1}

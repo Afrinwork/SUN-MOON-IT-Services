@@ -62,11 +62,11 @@ export function TechnologyPageContent() {
             </nav>
           </aside>
 
-          <div>
+          <div className="grid gap-5">
             {technologyCategories.map((category, index) => {
               const Icon = categoryIcons[category.id];
               return (
-                <article key={category.id} id={category.id} className="scroll-mt-28 border-t border-border py-10 first:pt-0 first:border-t-0">
+                <article key={category.id} id={category.id} className="scroll-mt-28 rounded-3xl bg-white p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.8)] lg:p-8">
                   <div className="grid gap-6 xl:grid-cols-[1fr_1.4fr]">
                     <div>
                       <div className="flex items-center gap-3"><span className="grid size-11 place-items-center rounded-xl bg-primary text-accent"><Icon size={20} /></span><span className="text-sm font-black text-accent-strong">{String(index + 1).padStart(2, "0")}</span></div>

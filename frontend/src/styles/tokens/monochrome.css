@@ -38,6 +38,7 @@ footer {
   .bg-surface,
   .bg-surface-accent,
   .mono-light,
+  .mobile-contact-bar,
   .site-header {
     --brand-primary: #0a0a0a;
     --brand-primary-deep: #000000;
@@ -133,8 +134,29 @@ footer {
   }
 }
 
-/* Goldene Metallkarten: Nebentext und Linien dunkler, damit sie auf Gold lesbar bleiben. */
+/* Gelbe Metallkarten: Nebentext und Linien dunkler, damit sie auf Gelb lesbar bleiben. */
 .metal-card {
   --text-secondary: #3b3220;
   --border: rgb(0 0 0 / 0.2);
+}
+
+/* Hero jeder Seite: eingerahmt, damit er sich vom Rest der Seite abhebt. */
+#inhalt section.home-hero,
+#inhalt section.finder-intro,
+#inhalt header.network-grid {
+  margin: 0.5rem 0.5rem 0;
+  border: 1px solid rgb(255 255 255 / 0.18);
+  border-radius: 1.5rem;
+  background-color: rgb(255 255 255 / 0.025);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 30px 60px -40px rgb(0 0 0 / 0.9);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #inhalt section.home-hero,
+  #inhalt section.finder-intro,
+  #inhalt header.network-grid {
+    margin: 1rem 1.25rem 0;
+    border-radius: 2rem;
+  }
 }

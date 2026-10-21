@@ -18,7 +18,7 @@ function PriceLabel({ pkg }: { pkg: PricePackage }) {
   );
 }
 
-/** Paketkarte als goldene Metallkarte, das beliebte Paket mit Hinweis. */
+/** Paketkarte als gelbe Metallkarte, das beliebte Paket mit Hinweis. */
 export function PriceCard({ pkg }: { pkg: PricePackage }) {
   return (
     <MetalCard>
