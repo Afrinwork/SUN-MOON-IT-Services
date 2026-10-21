@@ -1,0 +1,31 @@
+/* „Zum Seitenanfang“: unten rechts, blendet erst nach etwas Scrollen ein. */
+.back-to-top {
+  position: fixed;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 40;
+  opacity: 0;
+  translate: 0 1rem;
+  pointer-events: none;
+  transition: opacity 0.3s ease, translate 0.3s ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  translate: 0 0;
+  pointer-events: auto;
+}
+
+/* Mobil liegt auf manchen Seiten die Kontaktleiste unten, der Knopf sitzt dann darüber. */
+@media (max-width: 767.98px) {
+  body:has(.mobile-contact-bar) .back-to-top {
+    bottom: 6.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.2s ease;
+    translate: none;
+  }
+}

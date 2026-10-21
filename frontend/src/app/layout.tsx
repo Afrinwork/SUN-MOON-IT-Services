@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/footer/Footer";
 import { SiteHeader } from "@/components/layout/header/SiteHeader";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { SiteBackground } from "@/components/layout/SiteBackground";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <div id="inhalt" tabIndex={-1} className="outline-none">{children}</div>
         <Footer />
+        <BackToTop />
         <CookieNotice />
       </body>
     </html>
