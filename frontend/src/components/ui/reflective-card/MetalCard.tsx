@@ -3,18 +3,21 @@
 import type { ReactNode } from "react";
 import ReflectiveCard from "@/components/ui/reflective-card/ReflectiveCard";
 
-type Props = { children: ReactNode; light?: boolean; className?: string };
+/** Dunkleres Gelb/Gold für die Metallfläche. */
+const GOLD = "#c9a227";
+
+type Props = { children: ReactNode; className?: string };
 
 /**
  * Metallische Karte (React Bits ReflectiveCard) mit den Einstellungen der Seite:
- * spiegelt das Hero-Video in Graustufen. `light` = silberne Variante mit dunkler Schrift.
+ * goldene Fläche mit dunkler Schrift, spiegelt das Hero-Video in Graustufen.
  */
-export function MetalCard({ children, light = false, className = "" }: Props) {
+export function MetalCard({ children, className = "" }: Props) {
   return (
     <ReflectiveCard
-      theme={light ? "light" : "dark"}
+      theme="light"
       videoSrc="/videos/hero-background.mp4"
-      tint="#ffffff"
+      tint={GOLD}
       metalness={1}
       roughness={0.3}
       blurStrength={14}
@@ -30,7 +33,7 @@ export function MetalCard({ children, light = false, className = "" }: Props) {
       height="100%"
       enableTilt
       intro
-      className={`metal-card ${light ? "mono-light" : ""} ${className}`.trim()}
+      className={`metal-card mono-light ${className}`.trim()}
     >
       {children}
     </ReflectiveCard>

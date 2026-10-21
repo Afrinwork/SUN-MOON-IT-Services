@@ -16,7 +16,7 @@ export function PricingTeaserItem({ pkg }: { pkg: PricePackage }) {
       </Link>
 
       <Link href={pkg.serviceHref} className="group hidden h-56 md:block">
-        <MetalCard light={pkg.highlighted}>
+        <MetalCard>
           <span className="flex h-full flex-col text-primary">
             <span className="block text-lg font-bold">{pkg.name}</span>
             <span className="mt-1 block text-sm leading-6 text-muted">{pkg.audience}</span>

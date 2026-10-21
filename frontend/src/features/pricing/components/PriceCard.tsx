@@ -18,10 +18,10 @@ function PriceLabel({ pkg }: { pkg: PricePackage }) {
   );
 }
 
-/** Paketkarte als Metallkarte. Das beliebte Paket ist silbern, die anderen dunkel. */
+/** Paketkarte als goldene Metallkarte, das beliebte Paket mit Hinweis. */
 export function PriceCard({ pkg }: { pkg: PricePackage }) {
   return (
-    <MetalCard light={pkg.highlighted}>
+    <MetalCard>
       <article className="flex h-full flex-col text-primary">
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-xl font-bold">{pkg.name}</h3>
