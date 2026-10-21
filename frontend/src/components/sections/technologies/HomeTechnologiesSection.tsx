@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { ReactNode, SVGProps } from "react";
+import type { CSSProperties, ReactNode, SVGProps } from "react";
 import { BiLogoMicrosoftTeams, BiLogoVisualStudio } from "react-icons/bi";
 import { BsOpenai } from "react-icons/bs";
 import { DiMsqlServer } from "react-icons/di";
@@ -66,7 +66,7 @@ function PowerBiIcon(props: SVGProps<SVGSVGElement>) {
 type Technology = { name: string; icon: ReactNode };
 
 const technologies: Technology[] = [
-  { name: "Apple / iOS", icon: <FaApple className="text-[#111827]" /> },
+  { name: "Apple / iOS", icon: <FaApple className="text-white" /> },
   { name: "Android", icon: <FaAndroid className="text-[#3ddc84]" /> },
   { name: "WordPress", icon: <SiWordpress className="text-[#21759b]" /> },
   { name: "Java", icon: <FaJava className="text-[#e76f00]" /> },
@@ -81,7 +81,7 @@ const technologies: Technology[] = [
   { name: "Microsoft Teams", icon: <BiLogoMicrosoftTeams className="text-[#6264a7]" /> },
   { name: "Microsoft Outlook", icon: <PiMicrosoftOutlookLogoFill className="text-[#0078d4]" /> },
   { name: "React", icon: <SiReact className="text-[#149eca]" /> },
-  { name: "Next.js", icon: <SiNextdotjs className="text-black" /> },
+  { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
   { name: "TypeScript", icon: <SiTypescript className="text-[#3178c6]" /> },
   { name: "JavaScript", icon: <SiJavascript className="text-[#d6b900]" /> },
   { name: "HTML5", icon: <SiHtml5 className="text-[#e34f26]" /> },
@@ -89,9 +89,9 @@ const technologies: Technology[] = [
   { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06b6d4]" /> },
   { name: "Spring Boot", icon: <SiSpringboot className="text-[#6db33f]" /> },
   { name: "Git", icon: <SiGit className="text-[#f05032]" /> },
-  { name: "GitHub", icon: <SiGithub className="text-[#181717]" /> },
+  { name: "GitHub", icon: <SiGithub className="text-white" /> },
   { name: "Docker", icon: <SiDocker className="text-[#2496ed]" /> },
-  { name: "Vercel", icon: <SiVercel className="text-black" /> },
+  { name: "Vercel", icon: <SiVercel className="text-white" /> },
   { name: "Visual Studio", icon: <BiLogoVisualStudio className="text-[#5c2d91]" /> },
   { name: "Azure DevOps", icon: <VscAzureDevops className="text-[#0078d4]" /> },
   { name: "PowerShell", icon: <VscTerminalPowershell className="text-[#5391fe]" /> },
@@ -112,11 +112,11 @@ export function HomeTechnologiesSection() {
           </Link>
         </div>
 
-        <ul className="-mx-5 mt-6 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:mx-0 md:mt-8 md:grid md:grid-cols-4 md:gap-3 md:overflow-visible md:px-0 lg:grid-cols-6 xl:grid-cols-7">
-          {technologies.map((technology) => (
-            <li key={technology.name} className="group flex min-h-24 w-28 shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-surface/70 p-3 text-center transition duration-300 active:scale-[0.98] md:min-h-28 md:w-auto md:gap-3 md:p-4 md:hover:-translate-y-1 md:hover:border-accent/45 md:hover:bg-white md:hover:shadow-xl md:hover:shadow-primary/7">
-              <span className="grid size-9 place-items-center text-[2rem] transition duration-300 group-hover:scale-110 [&>svg]:size-8">{technology.icon}</span>
-              <span className="text-xs font-bold leading-5 text-primary">{technology.name}</span>
+        <ul className="-mx-5 mt-6 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:mx-0 md:mt-10 md:grid md:grid-cols-4 md:gap-x-3 md:gap-y-4 md:overflow-visible md:px-0 lg:grid-cols-6 xl:grid-cols-7">
+          {technologies.map((technology, index) => (
+            <li key={technology.name} className="tech-icon group flex w-24 shrink-0 snap-start flex-col items-center justify-center gap-2.5 py-3 text-center md:w-auto md:gap-3 md:py-5" style={{ "--tech-delay": `${(index % 7) * -0.45}s` } as CSSProperties}>
+              <span className="tech-icon__glyph grid size-12 place-items-center text-[2.75rem] [&>svg]:size-11 md:size-14 md:[&>svg]:size-12">{technology.icon}</span>
+              <span className="text-xs font-bold leading-5 text-white/85 transition group-hover:text-white">{technology.name}</span>
             </li>
           ))}
         </ul>

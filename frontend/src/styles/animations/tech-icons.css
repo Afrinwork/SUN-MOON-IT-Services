@@ -1,0 +1,36 @@
+/* Technologien: frei stehende Icons, die leicht schweben und sich beim Überfahren neigen und anheben. */
+@keyframes tech-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -0.35rem, 0); }
+}
+
+.tech-icon {
+  perspective: 600px;
+}
+
+.tech-icon__glyph {
+  animation: tech-float 4.2s ease-in-out var(--tech-delay, 0s) infinite;
+  filter: drop-shadow(0 0.6rem 0.9rem rgb(0 0 0 / 0.55));
+  transition: rotate 0.35s ease, scale 0.35s ease, filter 0.35s ease;
+}
+
+.tech-icon:hover .tech-icon__glyph {
+  rotate: x 12deg;
+  scale: 1.18;
+  filter: drop-shadow(0 1rem 1.2rem rgb(0 0 0 / 0.6)) drop-shadow(0 0 1.2rem rgb(255 255 255 / 0.18));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-icon__glyph {
+    animation: none;
+  }
+}
+
+/* Die allgemeine Karten-Bewegung der Startseite (Lichtfläche, Kippen) passt nicht zu frei stehenden Icons. */
+.tech-icon.home-motion-surface::after {
+  display: none;
+}
+
+.tech-icon.home-motion-surface:hover {
+  transform: none;
+}
